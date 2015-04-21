@@ -1,0 +1,134 @@
+// Top Bar/Header Styles
+
+.header {
+    margin: 20px auto;
+}
+
+.branding {
+    width: 185px;
+    float: left;
+
+    #logo {
+        background: url('/bli-wp/wp-content/themes/bli-theme/assets/logo.jpg');
+        background-repeat: no-repeat;
+        text-indent: -9999px;
+        height: 131px;
+        width: 185px;
+    }    
+}
+
+
+// Newsletter Sign-Up
+.bliTextInput {
+    float: right;
+    width: 500px;
+    margin-top: 24px;
+    .bliFormField {
+        position: relative;
+        float: right;
+        border: 1px solid $silver;
+        border-radius: 15px;
+        width: 50%;
+        
+        input {
+            // Remove Default Input Styles
+            border: {
+                style: none;
+                width: 0;
+                color: transparent;
+            };
+            box-shadow: 0 0 0 0;
+            //
+            width: 210px;
+            height: 30px;
+            float: left;
+            background-color: transparent;
+            border: 0;
+            margin-bottom: 0 !important;
+            padding: 0 0 0 12px;
+            font-size: 0.75em;
+            font-family: $sans-serif;
+            color: $aluminum;
+        }
+
+        .bliFormButton {
+            float: right;
+            height: 26px;
+            width: 26px;
+            padding-top: 1px;
+
+            a {
+                display: block;
+            }
+
+            img {
+                height: 24px;
+                width: 24px;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+.bliFormText {
+    font: {
+        size: 0.75em;
+    };
+    color: $aluminum;
+    float: left;
+    display: inline;
+    width: 50%;
+    text-align: right;
+    padding: 8px 12px 0 0;
+}
+
+    
+
+input[type="text"]:focus {
+    background: none;
+}
+
+// Desktop Top Bar Nav
+.desktopNav {
+    .top-bar-section {
+
+        ul {
+            list-style: none;
+            margin-top: 24px;
+
+            li {
+                background-color: $truewhite !important;
+                color: $steel;
+                margin: 0 1px;
+
+                a {
+                    text-transform: uppercase;
+                    line-height: 1.8rem !important;
+                    font-size: 0.65625em;
+                    background-color: $truewhite !important;
+                    color: $steel;
+                    padding: 1px 7px !important;
+                    
+                    &:hover {
+                        border: 1px solid $brandPrimary !important;
+                        border-radius: 4px;
+                        color: $brandPrimary;
+                    }
+                }
+                &.active {
+                    background: $brandSecondary;
+                }
+            }
+            .divider {
+                border-right: none;
+            }
+        }
+    }
+}
+
+// Override Default Active Top Nav
+.top-bar-section ul li.active > a {
+    background: $brandPrimary !important;
+    border: 1px solid $brandPrimary !important;
+    border-radius: 4px;
+}

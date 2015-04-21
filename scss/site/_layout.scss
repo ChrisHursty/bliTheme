@@ -1,0 +1,16 @@
+// Media Blocks
+
+.mediaBlock {
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        text-decoration: none;
+        transform: scale(1.02);
+    }
+
+    .mediaBlockText {
+        border: 1px solid $silver;
+        border-top: none;
+        padding: 6px;
+    }
+}

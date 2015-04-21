@@ -1,0 +1,64 @@
+
+// Colors
+$brandPrimary         : #da2929; // Red
+$brandSecondary       : #2b6a31; // Green
+
+$alertColor           : #f04124;
+$successColor         : #43AC6A;
+$warningColor         : #f08a24;
+$infoColor            : #a0d3e8;
+
+$primary-color        : #da2929 !default; // Red
+$secondary-color      : #2b6a31 !default; // Green
+$alert-color          : #f04124 !default; // Deep Purple
+$success-color        : #43AC6A !default; // Mid Blue
+
+//Default Colors
+$truewhite            : #ffffff;
+$white                : #eeeeee;
+$black                : #181818;
+
+$ghost                : #FAFAFA;
+$snow                 : #F9F9F9;
+$vapor                : #F6F6F6;
+$white-smoke          : #F5F5F5;
+$silver               : #e0e0e0;
+$smoke                : #EEEEEE;
+$gainsboro            : #DDDDDD;
+$iron                 : #CCCCCC;
+$base                 : #AAAAAA;
+$aluminum             : #999999;
+$jumbo                : #888888;
+$monsoon              : #777777;
+$steel                : #666666;
+$charcoal             : #555555;
+$tuatara              : #444444;
+$oil                  : #333333;
+$jet                  : #222222;
+
+// Fonts
+$sans-serif           : "Lato", Helvetica, Roboto, Arial, sans-serif;
+$serif                : Georgia, Cambria, "Times New Roman", Times, serif;
+$monospace            : Consolas, "Liberation Mono", Courier, monospace;
+
+// Weights
+$font-weight-normal   : normal !default;
+$font-weight-bold     : bold !default;
+$font-center          : center;
+
+// Global Variables
+$body-bg              : $white;
+$body-font-color      : $steel;
+$body-font-family     : $font-family-sans-serif;
+$body-font-weight     : $font-weight-normal;
+$body-font-style      : normal;
+$body-font-size       : 16px;
+
+$header-font-weight   : 300;
+$header-text-rendering: optimizeLegibility;
+$topbar-link-weight   : bold;
+
+// This code overwrites any variables set in the Foundation settings scss file
+$body-font-family     : "Lato", Helvetica, Roboto, Arial, sans-serif;
+$heading-font-color   : $steel !default;
+$global-radius        : 53px !default;

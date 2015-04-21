@@ -1,0 +1,78 @@
+// Home Page Styles
+.homePage {
+    .entry-content {
+        margin-top: 60px;
+    }
+
+    p {
+        text-align: $font-center;
+    }
+}
+
+// Slider Area
+.sliderHome {
+    .slick-slide {
+        height: 375px;
+        img {
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+    .slick-dots {
+        //bottom: -50px;
+
+        li button:before {
+            font-size: 10px;
+            color: $steel;
+        }
+    } 
+}
+
+
+
+// Search Field
+.bliSearchInput {
+    position: relative;
+    float: right;
+    border: 1px solid $silver;
+    border-radius: 15px;
+    width: 340px;
+    
+    input {
+        // Remove Default Input Styles
+        border: {
+            style: none;
+            width: 0;
+            color: transparent;
+        };
+        box-shadow: 0 0 0 0;
+        //
+        width: 210px;
+        height: 30px;
+        float: left;
+        background-color: transparent;
+        border: 0;
+        margin-bottom: 0 !important;
+        padding: 0 0 0 12px;
+        font-size: 0.75em;
+        font-family: $sans-serif;
+        color: $aluminum;
+    }
+
+    .bliFormButton {
+        float: right;
+        height: 26px;
+        width: 26px;
+        padding-top: 1px;
+
+        a {
+            display: block;
+        }
+
+        img {
+            height: 24px;
+            width: 24px;
+            opacity: 0.5;
+        }
+    }
+}
