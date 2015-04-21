@@ -96,6 +96,28 @@
                 </li>
             </ul>    
         </div> <!-- /row -->
+
+        <div class="row">
+            <h2>Folow Us On Social Media</h2>
+            
+        </div>
+        <div class="row">
+            <ul class="small-block-grid-3">
+                <li class="mediaBlock">
+                    Instagram
+                </li>
+                <li class="mediaBlock">
+                    <img src="https://placekitten.com/g/600/400" alt="">
+                    <div class="mediaBlockText">
+                        <a href="#">Holy Generic Link Batman</a>
+                    </div>
+                </li>
+                <li class="mediaBlock">
+                    <a class="twitter-timeline" href="https://twitter.com/ChrisHursty" data-widget-id="577494626870943744">Tweets by @ChrisHursty</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </li>
+            </ul>    
+        </div> <!-- /row -->
     
 
 	</div> <!-- /small-12 large-12 columns -->
