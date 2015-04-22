@@ -47,8 +47,22 @@
 			</footer>
 			<?php comments_template(); ?>
 		</article>
-	<?php endwhile; // End the loop ?>
-    
+        <div class="row">
+            <h2>Upcoming &amp; Recent Events</h2>
+            <h5><a href="">View All Events</a></h5>
+            <ul class="small-block-grid-3">
+            <?php
+                $args = array( 'numberposts' => '3' );
+                $recent_posts = wp_get_recent_posts( $args );
+                foreach( $recent_posts as $recent ){
+                    echo '<li class="mediaBlock">';
+                    the_post_thumbnail('recent-thumbnails');
+                    echo '<a href="' . get_permalink($recent["ID"]) . '">' . '<img src="' . get_the_post_thumbnail();' ">' .   $recent["post_title"].'</a> </li> ';
+                }
+            ?>
+            </ul>
+
+        </div>
         <div class="row"> 
             <h2>Upcoming &amp; Recent Events</h2>
             <h5><a href="">View All Events</a></h5>
@@ -96,27 +110,25 @@
                 </li>
             </ul>    
         </div> <!-- /row -->
+	<?php endwhile; // End the loop ?>
+    
+        
 
         <div class="row">
             <h2>Folow Us On Social Media</h2>
-            
+            <div class="small-12 columns photoWall">
+                <div id="instafeed"></div>
+            </div>
         </div>
         <div class="row">
-            <ul class="small-block-grid-3">
-                <li class="mediaBlock">
-                    Instagram
-                </li>
-                <li class="mediaBlock">
-                    <img src="https://placekitten.com/g/600/400" alt="">
-                    <div class="mediaBlockText">
-                        <a href="#">Holy Generic Link Batman</a>
-                    </div>
-                </li>
-                <li class="mediaBlock">
-                    <a class="twitter-timeline" href="https://twitter.com/ChrisHursty" data-widget-id="577494626870943744">Tweets by @ChrisHursty</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                </li>
-            </ul>    
+            <div class="small-8 columns">
+                Facebook
+                <div class="fb-page" data-href="https://www.facebook.com/BronxLittleItaly" data-width="500" data-height="600" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/BronxLittleItaly"><a href="https://www.facebook.com/BronxLittleItaly">Bronx Little Italy</a></blockquote></div></div>
+            </div>
+            <div class="small-4 columns">
+                <a class="twitter-timeline" href="https://twitter.com/BXLittleItaly" data-widget-id="511895354778738690">Tweets by @BXLittleItaly</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>    
         </div> <!-- /row -->
     
 

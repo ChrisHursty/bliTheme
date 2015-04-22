@@ -35,6 +35,8 @@
 	</head>
 	<body <?php body_class(); ?>>
 	<?php do_action('bliTheme_after_body'); ?>
+
+	<?php get_template_part('parts/facebook-sdk.php'); ?>
 	
 	<div class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap">

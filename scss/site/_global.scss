@@ -116,5 +116,28 @@ h2 {
     }
 }
 
+.instagramFeed {
+    width: 16%;
+    margin-right: 0.8%;
+    margin-bottom: 0.8%;
+    float: left;
+    &:nth-child(6),
+    &:nth-child(12) {
+        margin-right: 0;
+    }
+    img {
+        display: block;
+        max-width: 100%;
+        transition: all .2s ease-in-out;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.photoWall {
+    margin: 24px auto;
+}
+
 
 
