@@ -1,7 +1,14 @@
 
-// Colors
+// Brand Colors
 $brandPrimary         : #da2929; // Red
 $brandSecondary       : #2b6a31; // Green
+$brightGreen          : #0dc649; // Brigher Green
+$orange               : #ff5400; // Orange
+$purple               : #7234b6; // Purple
+$pink                 : #d81e71; // Pink
+$blue                 : #0747a9; // Blue
+$brightBlue           : #0fb4b8; // Brigher Blue
+
 
 $alertColor           : #f04124;
 $successColor         : #43AC6A;
@@ -54,11 +61,12 @@ $body-font-weight     : $font-weight-normal;
 $body-font-style      : normal;
 $body-font-size       : 16px;
 
+$header-font-family   : "Lato", Helvetica, Roboto, Arial, sans-serif !important;
 $header-font-weight   : 300;
 $header-text-rendering: optimizeLegibility;
 $topbar-link-weight   : bold;
 
 // This code overwrites any variables set in the Foundation settings scss file
-$body-font-family     : "Lato", Helvetica, Roboto, Arial, sans-serif;
+$body-font-family     : "Lato", Helvetica, Roboto, Arial, sans-serif !important;
 $heading-font-color   : $steel !default;
 $global-radius        : 53px !default;

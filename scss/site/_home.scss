@@ -28,7 +28,16 @@
     } 
 }
 
-
+//Sections
+.homeSection {
+    margin: 3rem auto;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid $white-smoke;
+    
+    &:last-of-type {
+        border-bottom: 0;
+    }
+}
 
 // Search Field
 .bliSearchInput {

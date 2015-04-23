@@ -110,9 +110,9 @@ input[type="text"]:focus {
                     padding: 1px 7px !important;
                     
                     &:hover {
-                        border: 1px solid $brandPrimary !important;
-                        border-radius: 4px;
-                        color: $brandPrimary;
+                        border-bottom: 4px solid $brightGreen !important;
+                        color: $brightGreen;
+                        //font-weight: bold;
                     }
                 }
                 &.active {
@@ -128,7 +128,7 @@ input[type="text"]:focus {
 
 // Override Default Active Top Nav
 .top-bar-section ul li.active > a {
-    background: $brandPrimary !important;
-    border: 1px solid $brandPrimary !important;
-    border-radius: 4px;
+    color: $brightGreen !important;
+    border-bottom: 4px solid $brightGreen !important;
+    font-weight: bold;
 }

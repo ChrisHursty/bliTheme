@@ -59,22 +59,38 @@ img.alignright {
 	margin: rem-calc(7) 0 rem-calc(7) rem-calc(24);
 }
 
-@mixin headings {
-    h1, h2, h3,
-    h4, h5, h6 {
+@mixin headingsSerif {
+    h1, h2 {
         @content;
     }
 }
 
-@include headings {
+@include headingsSerif {
     font-family: $serif;
-    color: $steel;
+    color: lighten($steel, 25%);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@mixin headingsSansSerif {
+    h3, h4, h5, h6 {
+        @content;
+    }
+}
+
+@include headingsSansSerif {
+    font-family: $sans-serif;
+    color: lighten($steel, 25%);
     text-align: center;
     text-transform: uppercase;
 }
 
 h2 {
 	font-size: 1.875rem;
+}
+
+h6 {
+    font-weight: bold;
 }
 
 
@@ -116,6 +132,8 @@ h2 {
     }
 }
 
+
+
 .instagramFeed {
     width: 16%;
     margin-right: 0.8%;
@@ -136,8 +154,13 @@ h2 {
 }
 
 .photoWall {
-    margin: 24px auto;
+    margin: 3rem auto 6rem;
 }
 
-
-
+// Override Default Button Color
+button, .button {
+    background-color: $blue;
+    &:hover {
+        background-color: lighten($blue, 15%);
+    }
+}

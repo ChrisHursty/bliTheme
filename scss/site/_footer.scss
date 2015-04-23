@@ -2,7 +2,7 @@
 @media #{$medium-up} {
 	footer.row {
 		margin-top: rem-calc(60);
-        background-color: #66b666;
+        background-color: $brightBlue;
         padding: 40px 0 80px;
         max-width: 100%;
         
@@ -15,7 +15,13 @@
                 color: $truewhite;
             }
             a {
-                color: $brandPrimary;
+                color: lighten($brightBlue, 15%);
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    color: $truewhite;
+                    text-decoration: underline;                        
+                }
             }
         }
 	}

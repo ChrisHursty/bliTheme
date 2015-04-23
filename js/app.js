@@ -13,7 +13,6 @@ jQuery( document ).ready(function( $ ) {
     });
 
     // Instagram Feed
-
     $(function() {
      
         //Set up instafeed
@@ -29,7 +28,13 @@ jQuery( document ).ready(function( $ ) {
             resolution: 'standard_resolution',
             template: '<div class="instagramFeed"><a href="{{link}}" target="_blank"><img src="{{image}}"></a></div>'
         });
-        feed.run(); 
+        feed.run();
+    });
+
+    // Removes all the random &npsp's in the home page recent posts list
+    $(".small-block-grid-3").each(function() {
+        var $this = $(this);
+        $this.html($this.html().replace(/&nbsp;/g, ''));
     });
 
 });
