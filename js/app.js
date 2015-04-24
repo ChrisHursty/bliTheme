@@ -17,11 +17,11 @@ jQuery( document ).ready(function( $ ) {
      
         //Set up instafeed
         var feed = new Instafeed({
-            clientId: '05ec09948b1142e79021a26595410275',
+            clientId: '352454a1ac684720b99ed553eebfab1e',
             target: 'instafeed',
             get: 'user',
-            userId: 365961359,
-            accessToken: '365961359.467ede5.4707c87a559b435b805815261d74fab1',
+            userId: 1149802252,
+            accessToken: '1149802252.9078622.39d85b0f0315426f852196e5f0ce5201',
             links: true,
             limit: 12,
             sortBy: 'most-recent',

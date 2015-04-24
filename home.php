@@ -125,28 +125,24 @@
         </section>
             
 
-        <!-- Begin Sponsors Section -->
+        <!-- Begin Sponsor Section -->
         <section class="homeSection">
             <div class="row">
-                <h2> Our Sponsors</h2>
-                <ul class="small-block-grid-3">
+            <!-- Query Custom Post Type -->
+            <?php query_posts('post_type=sponsor'); ?>
+            <?php /* Start loop */ ?>
+                <h2>Our Sponsors</h2>
+                <ul class="small-block-grid-3 sponsors">
+                <?php while (have_posts()) : the_post(); ?>
                     <li class="sponsor">
-                        <a href="#">
-                            <img src="https://placekitten.com/g/600/400" alt="">
+                        <a href="<?php the_field('bli_sponsor_link'); ?>" target="_blank">
+                            <img class="sponsorImage" src="<?php the_field( 'bli_sponsor_image' ); ?>" alt="<?php the_field('bli_sponsor_name'); ?>" label="<?php the_field('bli_sponsor_name'); ?>">
                         </a>
                     </li>
-                    <li class="sponsor">
-                        <a href="#">
-                            <img src="https://placekitten.com/g/600/400" alt="">
-                        </a>
-                    </li>
-                    <li class="sponsor">
-                        <a href="#">
-                            <img src="https://placekitten.com/g/600/400" alt="">
-                        </a>
-                    </li>
+                <?php endwhile; ?>
                 </ul>    
             </div> <!-- /row -->
+            
         </section>
         
 	</div> <!-- /small-12 large-12 columns -->

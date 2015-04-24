@@ -75,7 +75,7 @@ function bli_sponsors() {
         'label'               => __( 'sponsor', 'bli-theme' ),
         'description'         => __( 'Home Page Sponsors Section', 'bli-theme' ),
         'labels'              => $labels,
-        'supports'            => array( 'custom-fields', ),
+        'supports'            => array( 'title', 'custom-fields', ),
         'taxonomies'          => array( 'category', 'post_tag' ),
         'hierarchical'        => false,
         'public'              => true,
