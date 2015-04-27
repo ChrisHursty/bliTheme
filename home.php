@@ -1,16 +1,37 @@
 <?php get_header(); ?>
-<div class="sliderHome">
-    <div><img src="wp-content/themes/bli-theme/assets/slide1.jpg" alt=""></div>
-    <div><img src="wp-content/themes/bli-theme/assets/slide2.jpg" alt=""></div>
-    <div><img src="wp-content/themes/bli-theme/assets/slide3.jpg" alt=""></div>
-</div>
-<!--
-<?php if ( has_post_thumbnail() ) : ?>
-    <div class="homeSlider">
-        <?php the_post_thumbnail('featured-img'); ?>
-    </div>
-<?php endif; ?>
--->
+    <!-- Home Page Slider -->
+    <?php 
+    // Query Arguments
+        $args = array(
+            'post_type'         => 'slides',
+            'posts_per_page'    => 5
+        );  
+        
+        // The Query
+        $the_query = new WP_Query( $args );
+        
+        // Check if the Query returns any posts
+        $the_query->have_posts()
+        
+        // Start the Slider ?>
+        <div class="sliderHome">
+            <?php       
+            // The Loop
+            while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                <div>
+                <?php 
+                // The Slide's Image
+                echo the_post_thumbnail('homeSlider'); ?>
+                </div>
+            <?php endwhile; ?>
+        
+        </div><!-- /sliderHome -->        
+        <?php 
+        // Reset Post Data
+        wp_reset_postdata();
+    ?>
+    <!-- /Home Page Slider -->
+
 <div class="row homePage">
 	<div class="small-12 large-12 columns" role="main">
         <div class="row">

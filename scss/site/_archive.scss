@@ -1,0 +1,50 @@
+// All Archive Page Styles - Unless Stated Otherwise
+.archiveBlock {
+    
+    .archiveAnchor {
+        display: block;
+        border: 1px solid $smoke;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .archiveImg {
+        
+        img {
+            width: 100%;
+            max-height: 320px;
+            height: 320px;
+            transition: all .2s ease-in-out;
+            &:hover {
+                transform: scale(1.02);
+            }
+        }
+    }
+    .archiveText {
+        padding: 12px;
+        .archiveTitle {
+            text: {
+                align: center;
+                transform: uppercase;
+            };
+            letter-spacing: -1px;
+            color: $jet;
+            font: {
+                family: $serif;
+                size: 1.125rem;
+            };
+        }
+        .archiveAddress {
+            color: $steel;
+            font: {
+                family: $sans-serif;
+                size: 0.8rem;
+            };
+            span {
+                font-weight: 700;
+            }
+        }    
+    }   
+}

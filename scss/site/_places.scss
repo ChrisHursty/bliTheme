@@ -1,0 +1,22 @@
+.placesSidebar {
+
+    text-align: center;
+
+    h6 {
+        color: $steel;
+    }
+
+    .placeAddress,
+    .placeNumber,
+    .placeHours,
+    .placeWidgets,
+    .placeWeb {
+        border: 1px solid $smoke;
+        margin: 2rem auto;
+        padding: 1rem; 
+    }
+    
+    .placeAddress {
+        margin-top: 0;
+    }
+}

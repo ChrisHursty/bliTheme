@@ -27,7 +27,7 @@ function bli_places_custom_post_type() {
         'label'               => __( 'places', 'bli-theme' ),
         'description'         => __( 'Places', 'bli-theme' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'custom-fields', 'thumbnail' ),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
         'taxonomies'          => array( 'category', 'post_tag' ),
         'hierarchical'        => false,
         'public'              => true,
@@ -98,5 +98,47 @@ function bli_sponsors() {
 // Hook into the 'init' action
 add_action( 'init', 'bli_sponsors', 0 );
 
+
+// Register Custom Post Type for Home Page Slider
+function bli_homeSlider() {
+    $labels = array(
+        'name'              => _x( 'Slides', 'post type general name' ),
+        'singular_name'     => _x( 'Slide', 'post type singular name' ),
+        'add_new'           => __( 'Add New Slide' ),
+        'add_new_item'      => __( 'Add New Slide' ),
+        'edit_item'         => __( 'Edit Slide' ),
+        'new_item'          => __( 'New Slide' ),
+        'view_item'         => __( 'View Slide' ),
+        'search_items'      => __( 'Search Slides' ),
+        'not_found'         => __( 'Slide' ),
+        'not_found_in_trash'=> __( 'Slide' ),
+        'parent_item_colon' => __( 'Slide' ),
+        'menu_name'         => __( 'Slides' )
+    );
+    
+    $taxonomies = array();
+    
+    $supports = array('title','thumbnail');
+    
+    $post_type_args = array(
+        'labels'            => $labels,
+        'singular_label'    => __('Slide'),
+        'public'            => true,
+        'show_ui'           => true,
+        'publicly_queryable'=> true,
+        'query_var'         => true,
+        'capability_type'   => 'post',
+        'has_archive'       => false,
+        'hierarchical'      => false,
+        'rewrite'           => array('slug' => 'slides', 'with_front' => false ),
+        'supports'          => $supports,
+        'menu_position'     => 6,
+        'menu_icon'         => 'dashicons-images-alt2',
+        'taxonomies'        => $taxonomies
+     );
+     register_post_type('slides',$post_type_args);
+}
+add_action('init', 'bli_homeSlider');
+  
 
 ?>
