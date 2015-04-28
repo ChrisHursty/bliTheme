@@ -6,6 +6,8 @@
     $gtemp = explode (',',  implode($location));
     $coord = explode (',', implode($gtemp));
 ?>
+
+<h1>I am the Eggman</h1>
 <!-- <div class="acf-map"> -->
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>      
     <div class="marker" data-lat="<?php echo $location[lat]; ?>" data-lng="<?php echo $location[lng]; ?>">  

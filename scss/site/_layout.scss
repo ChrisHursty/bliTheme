@@ -1,15 +1,18 @@
 // Media Blocks
 
 .mediaBlock {
-    transition: all .2s ease-in-out;
+    position: relative;
 
     &:hover {
         text-decoration: none;
-        transform: scale(1.02);
     }
 
     img {
         height: 220px;
+        transition: all .2s ease-in-out;
+        &:hover {
+            transform: scale(1.02);
+        }
     }
 
     .mediaBlockText {
@@ -17,5 +20,15 @@
         border-top: none;
         padding: 6px;
     }
+    // Social Buttons
+    .fb_iframe_widget {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .pluginCountNum {
+        display: none
+    }
+
 }
 

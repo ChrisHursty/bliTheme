@@ -74,7 +74,6 @@
             <div class="row recentMediaBlock">
                 <h2>Upcoming &amp; Recent Events</h2>
                 <h5><a href="">View All Events</a></h5>
-                <fb:like href="<?php the_permalink() ?>" layout="button_count" show_faces="false" width="450" action="like" colorscheme="light"></fb:like>
                 <ul class="small-block-grid-3">
                 <!-- Custom Loop -->
                 <?php $the_query = new WP_Query( 'showposts=3' ); ?>
@@ -82,6 +81,14 @@
 
                     <li class="mediaBlock">
                         <?php the_post_thumbnail();?>
+                        <fb:like href="<?php the_permalink() ?>" layout="button_count" show_faces="false" width="450" action="like" colorscheme="light"></fb:like>
+                        <a class="twitter-share-button"
+                            href="https://twitter.com/share">
+                        Tweet
+                        </a>
+                        <script>
+                            window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+                        </script>
                         <div class="mediaBlockText">
                             <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
                         </div>
@@ -91,31 +98,6 @@
                 <!-- /Custom Loop -->
                 </ul>
             </div> <!-- /row -->
-
-            <!-- Begin Recent Events Section -->
-            <!-- <div class="row">
-                <h2>Sponsors</h2>
-                <ul class="small-block-grid-3">
-                    <li class="mediaBlock">
-                        <img src="https://placekitten.com/g/600/400" alt="">
-                        <div class="mediaBlockText">
-                            <a href="#">Cause I Just can't go on...</a>
-                        </div>
-                    </li>
-                    <li class="mediaBlock">
-                        <img src="https://placekitten.com/g/600/400" alt="">
-                        <div class="mediaBlockText">
-                            <a href="#">Holy Generic Link Batman</a>
-                        </div>
-                    </li>
-                    <li class="mediaBlock">
-                        <img src="https://placekitten.com/g/600/400" alt="">
-                        <div class="mediaBlockText">
-                            <a href="#">Holy Generic Link Batman</a>
-                        </div>
-                    </li>
-                </ul>    
-            </div>  /row -->
         </section>
         
 
@@ -128,15 +110,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="small-4 columns">
+                <a href="http://www.facebook.com/share.php?u=[URL]&title=[TITLE]" target="_blank">Share This!</a>
+                <a href="http://twitter.com/intent/tweet?status=@BXLittleItaly">Twitter</a>
+                <div class="small-8 columns homeFacebook">
                     <?php dynamic_sidebar("homepage-facebook"); ?>
-                </div>
-                <div class="small-4 columns">
-                    <div class="fb-page" data-href="https://www.facebook.com/BronxLittleItaly" data-width="500" data-height="600" data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
-                        <div class="fb-xfbml-parse-ignore">
-                            <blockquote cite="https://www.facebook.com/BronxLittleItaly"><a href="https://www.facebook.com/BronxLittleItaly">Bronx Little Italy</a></blockquote>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="small-4 columns">
                     <a class="twitter-timeline" href="https://twitter.com/BXLittleItaly" data-widget-id="511895354778738690">Tweets by @BXLittleItaly</a>

@@ -7,21 +7,24 @@
 get_header(); 
 
 ?>
-
 <div class="row">
-    <div class="small-12 large-8 columns" role="main">
+    <div class="small-12 large-12 columns" role="main">
+        <ul class="medium-block-grid-3">
+        <?php if ( have_posts() ) : ?>
+                
+            <?php /* Start the Loop */ ?>
+            <?php while ( have_posts() ) : the_post(); ?>
+                    
+            <?php the_content(); ?>  
+                    
+                
+            <?php endwhile; ?>
 
-        <?php while ( have_posts() ) : the_post(); ?>
+        
 
-            <h1><?php the_field('test_name'); ?></h1>
-            <?php the_field('field_name'); ?>
-            <img src="<?php the_field('test_image'); ?>" />
-
-            <p><?php the_content(); ?></p>
-
-        <?php endwhile; // end of the loop. ?>
+        <?php endif; // end have_posts() check ?>
+        </ul>
 
     </div>
-    <?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>
