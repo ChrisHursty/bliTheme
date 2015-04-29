@@ -12,6 +12,10 @@
         transition: all .2s ease-in-out;
         &:hover {
             transform: scale(1.02);
+
+            @media #{$small-only} {
+                transform: none;
+            }
         }
     }
 
@@ -21,14 +25,35 @@
         padding: 6px;
     }
     // Social Buttons
-    .fb_iframe_widget {
+    .facebook,
+    .twitter {
         position: absolute;
-        top: 0;
-        right: 0;
+        height: 36px;
+        width: 36px;
+        bottom: 64px;
+        opacity: 0.8;
+        transition: all .2s ease-in-out;
+        &:hover {
+            opacity: 1;
+        }
+        a {
+            display: block;
+            z-index: 10;
+            height: 36px;
+            width: 36px;
+        }
     }
+    .facebook {
+        background-image: url("/bli-wp/wp-content/themes/bli-theme/assets/svg/facebook-square.svg");
+        right: 16px;
+
+    }
+    .twitter {
+        background-image: url("/bli-wp/wp-content/themes/bli-theme/assets/svg/twitter.svg");
+        right: 54px;
+    }
+
     .pluginCountNum {
         display: none
-    }
-
+    }   
 }
-

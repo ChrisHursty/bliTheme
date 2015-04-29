@@ -10,7 +10,18 @@ jQuery( document ).ready(function( $ ) {
         slidesToShow: 1,
         touchMove: true,
         slidesToScroll: 1,
-        element: 'div'
+        element: 'div',
+        responsive: [
+            {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: false
+                }
+            }
+        ]
     });
     
 
@@ -34,7 +45,7 @@ jQuery( document ).ready(function( $ ) {
     });
 
     // Removes all the random &npsp's in the home page recent posts list
-    $(".small-block-grid-3").each(function() {
+    $(".small-block-grid-1").each(function() {
         var $this = $(this);
         $this.html($this.html().replace(/&nbsp;/g, ''));
     });

@@ -2,6 +2,9 @@
 .homePage {
     .entry-content {
         margin-top: 60px;
+        @media #{$small-only} {
+            margin-top:10px;
+        }
     }
 
     p {
@@ -17,6 +20,9 @@
             width: 100%;
             overflow: hidden;
         }
+        @media #{$small-only} {
+            height: 140px;
+        }
     }
     .slick-dots {
         //bottom: -50px;
@@ -25,8 +31,18 @@
             font-size: 10px;
             color: $steel;
         }
-    } 
+    }
+
 }
+
+// Responsive Slider Styles
+.slick-slider {
+    @media #{$small-only} {
+        //display: none !important;
+        margin-bottom: 0px !important;
+    }
+}
+
 
 //Sections
 .homeSection {
@@ -36,6 +52,9 @@
     
     &:last-of-type {
         border-bottom: 0;
+    }
+    @media #{$small-only} {
+        margin: 1rem auto;
     }
 }
 
@@ -84,13 +103,103 @@
             opacity: 0.5;
         }
     }
+    @media #{$small-only} {
+        width: 90%;
+        margin: 5%;
+    }
 }
 
 
-// Home Page Facebook Feed
+// Social Media Profiles/Menu
+.socialLinks {
+    width: 30%;
+    height: 2.5em;
+    float: left;
+    ul {
+        list-style: none;
+        
+        li {
+            display: inline;
+            float: left;
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);  
+            }
+            
+            a {
+                display: block;
+                height: 2em;
+                width: 2em; 
+            }
+        }
+        .facebook {
+            background-image: url("/bli-wp/wp-content/themes/bli-theme/assets/svg/facebook-square.svg");
+        }
+        .twitter {
+            background-image: url("/bli-wp/wp-content/themes/bli-theme/assets/svg/twitter.svg");
+        }
+        .instagram {
+            background-image: url("/bli-wp/wp-content/themes/bli-theme/assets/svg/instagram.svg");
+        }
+    }
+    @media #{$small-only} {
+        display: none;
+    }
+}
+
+
+// Instagram Feed
+.instagramFeed {
+    width: 16%;
+    margin-right: 0.8%;
+    margin-bottom: 0.8%;
+    float: left;
+    &:nth-child(6),
+    &:nth-child(12) {
+        margin-right: 0;
+    }
+    img {
+        display: block;
+        max-width: 100%;
+        transition: all .2s ease-in-out;
+        &:hover {
+            transform: scale(1.05);
+            @media #{$small-only} {
+                transform: none;
+            }
+        }
+    }
+    @media #{$small-only} {
+        width: 48%;
+        margin-right: 2%;
+        margin-bottom: 2%;
+    }
+}
+
+.photoWall {
+    margin: 3rem auto 6rem;
+}
+
+
+// Hide Homepage Facebook/Twitter Feed on smaller screens
+.homeFacebook,
+.homeTwitter {
+    @media #{$small-only} {
+        display: none;
+    }
+    @media #{$medium-only} {
+        display: none;
+    } 
+}
+
 .homeFacebook {
     list-style: none;
 }
+
 
 // Home Page Sponsor Styles
 .sponsors {
@@ -101,6 +210,39 @@
         &:hover {
             transform: scale(1.04);
             border: 3px solid $smoke !important;
+            @media #{$small-only} {
+                transform: none;
+            }
         }
     } 
+}
+
+.socialMobile {
+    display: none;
+    @media #{$small-only} {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    ul {
+        margin: 0 auto;   
+        li {
+            display: inline;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);  
+            }
+            
+            a {
+                display: block;
+                height: 3.1em;
+                width: 3.1em; 
+            }
+        }   
+    }
 }

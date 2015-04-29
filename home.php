@@ -43,7 +43,7 @@
                 </ul>
             </div> <!-- /socialLinks -->
 
-            <div class="bliSearchInput"> 
+            <div class="bliSearchInput">
                 <input type="text" placeholder="Search Food, Products, Places" />
                 <div class="bliFormButton">
                     <a href=""><img src="/bli-wp/wp-content/themes/bli-theme/assets/svg/circle-right.svg" alt="Search Food, Products, Places"></a>
@@ -74,21 +74,15 @@
             <div class="row recentMediaBlock">
                 <h2>Upcoming &amp; Recent Events</h2>
                 <h5><a href="">View All Events</a></h5>
-                <ul class="small-block-grid-3">
+                <ul class="small-block-grid-1 medium-block-grid-3">
                 <!-- Custom Loop -->
                 <?php $the_query = new WP_Query( 'showposts=3' ); ?>
                     <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
 
                     <li class="mediaBlock">
                         <?php the_post_thumbnail();?>
-                        <fb:like href="<?php the_permalink() ?>" layout="button_count" show_faces="false" width="450" action="like" colorscheme="light"></fb:like>
-                        <a class="twitter-share-button"
-                            href="https://twitter.com/share">
-                        Tweet
-                        </a>
-                        <script>
-                            window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
-                        </script>
+                        <div class="facebook"><a href="http://facebook.com/BronxLittleItaly" target="_blank"></a></div>
+                        <div class="twitter"><a href="http://twitter.com/BXLittleItaly" target="_blank"></a></div>
                         <div class="mediaBlockText">
                             <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
                         </div>
@@ -105,18 +99,22 @@
         <section class="homeSection">
             <div class="row">
                 <h2>Follow Us On Social Media</h2>
+                <div class="socialLinks socialMobile">
+                    <ul>
+                        <li class="facebook"><a href="http://facebook.com/BronxLittleItaly" target="_blank"></a></li>
+                        <li class="twitter"><a href="http://twitter.com/BXLittleItaly" target="_blank"></a></li>
+                        <li class="instagram"><a href="http://instagram.com/bronxlittleitaly/" target="_blank"></a></li>    
+                    </ul>
+                </div> <!-- /socialLinks -->
                 <div class="small-12 columns photoWall">
                     <div id="instafeed"></div>
                 </div>
             </div>
             <div class="row">
-                <a href="http://www.facebook.com/share.php?u=[URL]&title=[TITLE]" target="_blank">Share This!</a>
-                <a href="http://twitter.com/intent/tweet?status=@BXLittleItaly">Twitter</a>
-                <div class="small-8 columns homeFacebook">
+                <div class="small-12 medium-8 columns homeFacebook">
                     <?php dynamic_sidebar("homepage-facebook"); ?>
-
                 </div>
-                <div class="small-4 columns">
+                <div class="small-12 medium-4 columns homeTwitter">
                     <a class="twitter-timeline" href="https://twitter.com/BXLittleItaly" data-widget-id="511895354778738690">Tweets by @BXLittleItaly</a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>    
@@ -131,7 +129,7 @@
             <?php query_posts('post_type=sponsor'); ?>
             <?php /* Start loop */ ?>
                 <h2>Our Sponsors</h2>
-                <ul class="small-block-grid-3 sponsors">
+                <ul class="small-block-grid-1 medium-block-grid-3 sponsors">
                 <?php while (have_posts()) : the_post(); ?>
                     <li class="sponsor">
                         <a href="<?php the_field('bli_sponsor_link'); ?>" target="_blank">

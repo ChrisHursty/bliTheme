@@ -5,17 +5,21 @@
 }
 
 .branding {
-    width: 185px;
-    float: left;
-
-    #logo {
-        background: url('/bli-wp/wp-content/themes/bli-theme/assets/logo.jpg');
-        background-repeat: no-repeat;
-        text-indent: -9999px;
-        height: 131px;
+    display: none;
+    @media #{$medium-up} { 
         width: 185px;
-    }    
+        float: left;
+        display: block;
+    }
 }
+
+#logo {
+    background: url('/bli-wp/wp-content/themes/bli-theme/assets/logo.jpg');
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    height: 131px;
+    width: 185px;
+}    
 
 
 // Newsletter Sign-Up
@@ -68,6 +72,9 @@
             }
         }
     }
+    @media #{$small-only} {
+        display: none !important;
+    }
 }
 
 .bliFormText {
@@ -82,7 +89,6 @@
     padding: 8px 12px 0 0;
 }
 
-    
 
 input[type="text"]:focus {
     background: none;
@@ -97,7 +103,7 @@ input[type="text"]:focus {
             margin-top: 24px;
 
             li {
-                background-color: $truewhite !important;
+                background-color: transparent !important;
                 color: $steel;
                 margin: 0 1px;
 
@@ -105,14 +111,14 @@ input[type="text"]:focus {
                     text-transform: uppercase;
                     line-height: 1.8rem !important;
                     font-size: 0.65625em;
-                    background-color: $truewhite !important;
+                    background-color: transparent !important;
                     color: $steel;
                     padding: 1px 7px !important;
                     
-                    &:hover {
-                        border-bottom: 4px solid $brightGreen !important;
+                    &:hover,
+                    &:active,
+                    &:focus {
                         color: $brightGreen;
-                        //font-weight: bold;
                     }
                 }
                 &.active {
@@ -123,6 +129,9 @@ input[type="text"]:focus {
                 border-right: none;
             }
         }
+        @media #{$small-only} {
+            display: none;
+        }
     }
 }
 
@@ -131,4 +140,48 @@ input[type="text"]:focus {
     color: $brightGreen !important;
     border-bottom: 4px solid $brightGreen !important;
     font-weight: bold;
+}
+
+// Dropdown Styles
+.top-bar-section .right li .dropdown {
+    background: transparent !important;
+    margin-top: -4px !important;
+}
+
+.top-bar-section .dropdown li:not(.has-form):not(.active)>a:not(.button) {
+    background: $brightGreen !important;
+    &:hover {
+        box-sizing: border-box;
+        background: darken($brightGreen, 15%) !important;
+        color: $trueWhite;
+        border-bottom: 0 !important;
+    }
+}
+
+// Mobile Nav Styles
+.tab-bar {
+    background: $brandPrimary;
+}
+
+.left-small {
+    border-right: 1px solid $trueWhite;
+}
+
+.left-off-canvas-menu {
+    background: darken($trueWhite, 50%);
+}
+
+ul.off-canvas-list li a {
+    color: $trueWhite;
+    border-bottom: 1px solid $trueWhite;
+
+    &:hover {
+        background: $brandPrimary;
+    }
+}
+
+.header {
+    @media #{$small-only} {
+        margin: 0 auto;
+    }
 }
