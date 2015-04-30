@@ -3,7 +3,7 @@
 Custom Taxonomies for Bronx Little Italy Post Types
 */
 
-// Register Custom Post Type
+// Register Custom Post Type for Places/Merchants
 function bli_places_custom_post_type() {
 
     $labels = array(
@@ -16,7 +16,7 @@ function bli_places_custom_post_type() {
         'add_new_item'        => __( 'Add New Place', 'bli-theme' ),
         'add_new'             => __( 'Add New', 'bli-theme' ),
         'new_item'            => __( 'New Place', 'bli-theme' ),
-        'edit_item'           => __( 'Edit Places', 'bli-theme' ),
+        'edit_item'           => __( 'Edit Place', 'bli-theme' ),
         'update_item'         => __( 'Update Places', 'bli-theme' ),
         'view_item'           => __( 'View Place', 'bli-theme' ),
         'search_items'        => __( 'Search Place', 'bli-theme' ),

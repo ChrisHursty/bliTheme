@@ -1,19 +1,30 @@
 <?php get_header(); ?>
-<!-- Plotting of Places on Map -->
 
-<?php
-    $location = get_field('place_address');
-    $gtemp = explode (',',  implode($location));
-    $coord = explode (',', implode($gtemp));
-?>
-<!-- <div class="acf-map"> -->
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>      
-    <div class="marker" data-lat="<?php echo $location[lat]; ?>" data-lng="<?php echo $location[lng]; ?>">  
-        <?php echo the_field('place_address');?><br />
-    </div>
-    <?php endwhile; else : ?>
+<?php 
+$places = get_posts( array(
+   'post_type'      => 'places', 
+   'posts_per_page' => -1
+));
+
+if( !empty($places) ): ?>
+
+
+<div class="acf-map">
+
+  <?php foreach($places as $place): ?>
+    <?php
+     $location = get_field('place_address',$place->ID);
+
+     if( !empty($location) ): ?>
+
+     <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+
     <?php endif; ?>
-<!-- </div> -->
+  <?php endforeach; ?> 
+
+</div> 
+
+<?php endif; ?>
 
 <div class="row">
 <!-- Row for main content area -->
@@ -22,7 +33,7 @@
     // List All Categories like Breadcrumbs
     $args = array(
       'orderby' => 'name',
-      'order' => 'ASC'
+      'order'   => 'ASC'
       );
     $categories = get_categories($args);
       foreach($categories as $category) { 
@@ -65,19 +76,17 @@
                                 <h6>Phone Number</h6>
                                 <?php the_field('place_phone'); ?>    
                             </div>
-
-                            <div class="placeHours">
-                                <h6>Opening Hours</h6>
-                                <?php the_field('place_hours'); ?>    
-                            </div>
-
-                            <div class="placeWeb">
-                                <h6>Website</h6>
-                                <a href="<?php the_field('place_website'); ?>" target="_blank">
-                                    <?php the_field('place_website'); ?>
-                                </a>
-                                  
-                            </div>
+                            <?php 
+                            if( $website = get_field('place_website') ) {
+                                ?> 
+                                <div class="placeWeb">
+                                    <h6>Website</h6>
+                                    <a href="<?php the_field('place_website'); ?>" target="_blank">
+                                        <?php the_field('place_website'); ?>
+                                    </a>  
+                                </div>
+                                <?php
+                            }; ?>
                         </div> <!-- /placeAddress -->
                     </div> <!-- /archiveText --> 
                 </div> <!-- /archiveAnchor -->

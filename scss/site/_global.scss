@@ -112,3 +112,12 @@ button, .button {
     border-bottom: 5px solid $brightBlue;
     margin: 20px 0;
 }
+
+
+// Featured Image - Small
+.featuredImage-small {
+    img {
+        max-width: none;
+        width: 100%;
+    }
+}

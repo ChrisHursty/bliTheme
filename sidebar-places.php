@@ -26,13 +26,17 @@
         <?php the_field('place_hours'); ?>    
     </div>
 
-    <div class="placeWeb">
-        <h6>Website</h6>
-        <a href="<?php the_field('place_website'); ?>" target="_blank">
-            <?php the_field('place_website'); ?>
-        </a>
-          
-    </div>
+    <?php 
+    if( $website = get_field('place_website') ) {
+        ?> 
+        <div class="placeWeb">
+            <h6>Website</h6>
+            <a href="<?php the_field('place_website'); ?>" target="_blank">
+                <?php the_field('place_website'); ?>
+            </a>  
+        </div>
+        <?php
+    }; ?>
     <div class="placeWidgets">
         <?php dynamic_sidebar("sidebar-places"); ?>    
     </div>
