@@ -9,7 +9,7 @@
             <div class="bliFormField clearfix">
                 <input type="text" placeholder="Email Address" />
                 <div class="bliFormButton">
-                    <a href=""><img src="/bli-wp/wp-content/themes/bli-theme/assets/svg/circle-right.svg" alt="Sign Up For Our Newsletter"></a>
+                    <a href=""><img src="/bli-wp/wp-content/themes/bli-wp-theme/assets/svg/circle-right.svg" alt="Sign Up For Our Newsletter"></a>
                 </div>
             </div>
                    

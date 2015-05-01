@@ -110,8 +110,7 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       php: {
-        files: '*.php',
-        files: 'parts/*.php'
+        files: ['*.php', 'parts/*.php']
       }
     }
   });

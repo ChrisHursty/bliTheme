@@ -79,8 +79,46 @@ function open_graph_socials() { ?>
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
     <meta property="og:description" content="<?php bloginfo('description'); ?>" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/bli-wp/wp-content/themes/bli-theme/assets/logo.jpg" /> <?php } ?>
+    <meta property="og:image" content="/bli-wp/wp-content/themes/bli-wp-theme/assets/logo.jpg" /> <?php } ?>
 <?php }
 add_action( 'wp_head', 'open_graph_socials' );
+
+
+/* ------------------------------------------
+        
+                Custom Login
+
+-------------------------------------------*/
+function bli_login_logo() { ?>
+    <style type="text/css">
+        .login h1 {
+            width: 100%;
+            background-color: #fff;
+            background-position: 50%;
+            padding-top: 10px;
+            box-shadow        : 0 1px 1px 0 rgba(0, 0, 0, .1);
+            -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+        }
+        .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/logo.jpg);
+            background-size: 100%;
+            width: 185px;
+            height: 131px;
+            padding-bottom: 10px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'bli_login_logo' );
+
+function bli_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'bli_login_logo_url' );
+
+function bli_login_logo_url_title() {
+    return 'Bronx Little Italy | New York\'s Favorite Italian Neighborhood';
+}
+add_filter( 'login_headertitle', 'bli_login_logo_url_title' );
+
 
 ?>
