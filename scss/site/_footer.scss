@@ -2,26 +2,35 @@
 
 footer.row {
 	margin-top: rem-calc(60);
+    background-image: url("/bli-wp/wp-content/themes/bli-wp-theme/assets/footerBg.jpg");
+    background-size: cover;
     background-color: darken($brandSecondary, 10%);
-    padding: 40px 0 80px;
+    background-position: top center;
+    padding: 40px 0;
     max-width: 100%;
     
     .footerContent {
+        background: $white;
+        opacity: 0.8;
+        padding: 32px 0;
         text-align: center;
-        max-width: 62.5rem;
-        margin: 0 auto;
-        color: $trueWhite;
+        color: darken($brandPrimary, 25%);
         h6 {
-            color: $trueWhite;
+            color: darken($brandPrimary, 25%);
         }
         a {
-            color: lighten($brightBlue, 15%);
+            color: lighten($brandSecondary, 15%);
             transition: all .2s ease-in-out;
 
             &:hover {
-                color: $trueWhite;
+                color: $brandPrimary;
                 text-decoration: underline;
             }
+        }
+        .textBg {
+            max-width: 62.5rem;
+            margin: 0 auto;
+
         }
         @media #{$small-only} {
             article {

@@ -14,7 +14,7 @@
 }
 
 #logo {
-    background: url('/bli-wp/wp-content/themes/bli-wp-theme/assets/logo.jpg');
+    background: url('/wp-content/themes/bli-wp-theme/assets/logo.jpg');
     background-repeat: no-repeat;
     text-indent: -9999px;
     height: 131px;
@@ -135,8 +135,11 @@ input[type="text"]:focus {
     }
 }
 
+
+
 // Override Default Active Top Nav
-.top-bar-section ul li.active > a {
+.top-bar-section ul li.active > a,
+.top-bar-section ul li.active > a:focus {
     color: $brightGreen !important;
     border-bottom: 4px solid $brightGreen !important;
     font-weight: bold;
@@ -144,8 +147,12 @@ input[type="text"]:focus {
 
 // Dropdown Styles
 .top-bar-section .right li .dropdown {
-    background: transparent !important;
+    background: darken($brightGreen, 20%) !important;
     margin-top: -4px !important;
+}
+
+.desktopNav .top-bar-section ul li a:focus {
+    color: $brightGreen !important;
 }
 
 .top-bar-section .dropdown li:not(.has-form):not(.active)>a:not(.button) {

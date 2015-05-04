@@ -30,7 +30,7 @@
         position: absolute;
         height: 48px;
         width: 39px;
-        bottom: 64px;
+        top: 170px;
         opacity: 0.8;
         transition: all .2s ease-in-out;
         &:hover {
@@ -44,12 +44,12 @@
         }
     }
     .facebook {
-        background-image: url("/bli-wp/wp-content/themes/bli-wp-theme/assets/svg/facebook-square-white.svg");
+        background-image: url("/wp-content/themes/bli-wp-theme/assets/svg/facebook-square-white.svg");
         right: 16px;
 
     }
     .twitter {
-        background-image: url("/bli-wp/wp-content/themes/bli-wp-theme/assets/svg/twitter-white.svg");
+        background-image: url("/wp-content/themes/bli-wp-theme/assets/svg/twitter-white.svg");
         right: 54px;
     }
 
@@ -84,7 +84,7 @@
         color: $trueWhite;
     }
     .contactAddress {
-        background-image: url("/bli-wp/wp-content/themes/bli-wp-theme/assets/png/mailbox.png");
+        background-image: url("/wp-content/themes/bli-wp-theme/assets/png/mailbox.png");
         background-repeat: no-repeat;
         background-position: 50% 20%;
         width: 48%;

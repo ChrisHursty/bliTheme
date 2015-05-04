@@ -171,4 +171,7 @@ jQuery( document ).ready(function( $ ) {
 
     });
 
+    // Change the color of parent element
+    $( ".dropdown" ).parent().css( "color", "dodgerblue" );
+
 });

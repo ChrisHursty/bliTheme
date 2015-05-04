@@ -227,11 +227,12 @@
         text-align: center;
     }
     ul {
-        margin: 0 auto;   
+        margin: 0 auto;
+        display: block;
+        height: 30px;
+        width: 120px;
         li {
             display: inline;
-            height: 50px;
-            width: 50px;
             margin-right: 10px;
             transition: all .2s ease-in-out;
 
@@ -241,8 +242,8 @@
             
             a {
                 display: block;
-                height: 3.1em;
-                width: 3.1em; 
+                height: 30px;
+                width: 30px; 
             }
         }   
     }

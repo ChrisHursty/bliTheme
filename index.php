@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="row">
 	<div class="small-12 large-8 columns" role="main">
-
+	<h6>this is the index.php page</h6>
 	<?php if ( have_posts() ) : ?>
 
 		<?php do_action('bliTheme_before_content'); ?>

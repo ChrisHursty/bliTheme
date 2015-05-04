@@ -3,7 +3,10 @@
 <footer class="row">
     <div class="footerContent">
         <?php do_action('bliTheme_before_footer'); ?>
-        <?php dynamic_sidebar("footer-widgets"); ?>
+        <div class="row textBg">
+            <?php dynamic_sidebar("footer-widgets"); ?>    
+        </div>
+        
         <?php do_action('bliTheme_after_footer'); ?>
     </div>
 

@@ -1,42 +1,41 @@
-<?php get_header(); ?>
+<?php
+ 
+get_header(); ?>
+ 
+    <div class="row">
+        <div class="small-12 large-12 columns" role="main">
+            <div class="merchantCategories" role="main">
+                <?php
+                // List All Categories like Breadcrumbs
+                $args = array(
+                  'orderby' => 'name',
+                  'order'   => 'ASC'
+                  );
+                $categories = get_categories($args);
+                  foreach($categories as $category) { 
+                    echo '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a> - '; } 
+                ?>
+            </div>
 
-<div class="row">
-<!-- Row for main content area -->
-    <div class="small-12 large-12 columns" role="main">
-    <?php
-    // List All Categories like Breadcrumbs
-    $args = array(
-      'orderby' => 'name',
-      'order' => 'ASC'
-      );
-    $categories = get_categories($args);
-      foreach($categories as $category) { 
-        echo '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>,  '; } 
-    ?>
-    <h1>Stuff...</h1>
-    <ul class="medium-block-grid-3">
-    <?php if ( have_posts() ) : ?>
-            
-        <?php /* Start the Loop */ ?>
-        <?php while ( have_posts() ) : the_post(); ?>
-            <li class="archiveBlock">
-                <?php the_post_thumbnail(); ?>    
-                <?php the_title(); ?>    
-            </li>
-        <?php endwhile; ?>
+            <h3 class="page-title">
+                <?php printf( __( '%s', 'bli-theme' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?>
+            </h3>
+            <?php /* Start loop */ ?>
+            <?php while (have_posts()) : the_post(); ?>
+                <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+                    <div class="entry-content">
+                        <h2><?php the_title(); ?></h2>
+                        <div class="row">
+                            <div class="small-10 small-offset-1 columns">
+                                <?php the_content(); ?>    
+                            </div>   
+                        </div>
+                    </div>
 
-    <?php endif; // end have_posts() check ?>
-    </ul>
+                </article>
+            <?php endwhile; // End the loop ?>
 
+        </div><!-- /small-12 large-12 columns -->
+    </div><!-- /row -->
 
-    <?php /* Display navigation to next/previous pages when applicable */ ?>
-    <?php if ( function_exists('bliTheme_pagination') ) { bliTheme_pagination(); } else if ( is_paged() ) { ?>
-        <nav id="post-nav">
-            <div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'bli-theme' ) ); ?></div>
-            <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'bli-theme' ) ); ?></div>
-        </nav>
-    <?php } ?>
-
-    </div>
-</div>
 <?php get_footer(); ?>

@@ -13,13 +13,13 @@ if( !empty($places) ): ?>
 
   <?php foreach($places as $place): ?>
     <?php
-     $location = get_field('place_address',$place->ID);
+        $location = get_field('place_address',$place->ID);
 
-     if( !empty($location) ): ?>
+        if( !empty($location) ): ?>
 
-     <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+        <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
 
-    <?php endif; ?>
+        <?php endif; ?>
   <?php endforeach; ?> 
 
 </div> 
@@ -28,7 +28,7 @@ if( !empty($places) ): ?>
 
 <div class="row">
 <!-- Row for main content area -->
-    <div class="small-12 large-12 columns" role="main">
+    <div class="small-12 large-12 columns merchantCategories" role="main">
     <?php
     // List All Categories like Breadcrumbs
     $args = array(
@@ -39,7 +39,9 @@ if( !empty($places) ): ?>
       foreach($categories as $category) { 
         echo '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>,  '; } 
     ?>
-    <h1>Stuff...</h1>
+    </div>
+
+    <div class="small-12 large-12 columns" role="main">
     <ul class="medium-block-grid-3">
     <?php if ( have_posts() ) : ?>
             
