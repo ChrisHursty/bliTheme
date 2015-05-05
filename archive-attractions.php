@@ -11,9 +11,9 @@ if( !empty($merchants) ): ?>
 
 <div class="acf-map">
 
-  <?php foreach($merchants as $merchant): ?>
+  <?php foreach($merchants as $place): ?>
     <?php
-        $location = get_field('merchant_address',$merchant->ID);
+        $location = get_field('place_address',$place->ID);
 
         if( !empty($location) ): ?>
 
@@ -65,7 +65,7 @@ if( !empty($merchants) ): ?>
                             <?php 
                                                     
                             // Returns the Address from Google Map Place
-                            $contact_address = get_field('merchant_address');
+                            $contact_address = get_field('place_address');
                             ?>
                             <?php $address = explode( "," , $contact_address['address']);
                             echo $address[0]; //street, number
@@ -76,15 +76,15 @@ if( !empty($merchants) ): ?>
                         
                             <div class="placeNumber">
                                 <h6>Phone Number</h6>
-                                <?php the_field('merchant_phone'); ?>    
+                                <?php the_field('place_phone'); ?>    
                             </div>
                             <?php 
-                            if( $website = get_field('merchant_website') ) {
+                            if( $website = get_field('place_website') ) {
                                 ?> 
                                 <div class="placeWeb">
                                     <h6>Website</h6>
-                                    <a href="<?php the_field('merchant_website'); ?>" target="_blank">
-                                        <?php the_field('merchant_website'); ?>
+                                    <a href="<?php the_field('place_website'); ?>" target="_blank">
+                                        <?php the_field('place_website'); ?>
                                     </a>  
                                 </div>
                                 <?php

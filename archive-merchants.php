@@ -35,7 +35,7 @@ if( !empty($merchants) ): ?>
       'orderby' => 'name',
       'order'   => 'ASC'
       );
-    $categories = get_categories($args);
+    $categories = get_taxonomy($args);
       foreach($categories as $category) { 
         echo '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>,  '; } 
     ?>
@@ -83,7 +83,7 @@ if( !empty($merchants) ): ?>
                                 ?> 
                                 <div class="placeWeb">
                                     <h6>Website</h6>
-                                    <a href="<?php the_field('merchant_website'); ?>" target="_blank">
+                                    <a href="<?php the_field('place_website'); ?>" target="_blank">
                                         <?php the_field('merchant_website'); ?>
                                     </a>  
                                 </div>

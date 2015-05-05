@@ -4,9 +4,9 @@
  * Template Name: ACF Test Page
  */
 
-get_header(); 
+get_header(); ?>
 
-?>
+
 <div class="row">
     <div class="small-12 large-12 columns" role="main">
         <ul class="medium-block-grid-3">

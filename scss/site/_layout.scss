@@ -107,3 +107,15 @@
     }
 }
 
+
+// Featured Image Styles
+.featuredImage-small {
+    height: 300px;
+    overflow: hidden;
+    img {
+        max-width: 100%;
+        height: inherit;
+
+    }
+    margin-bottom: 30px;
+}

@@ -45,9 +45,9 @@ add_theme_support( 'post-thumbnails' );
 if ( function_exists( 'add_image_size' ) ) { 
     add_image_size( 'single-post-thumb', 793, 309, true ); // (cropped)
     add_image_size( 'featured-img', 1800, 375, true ); // (cropped)
-    add_image_size( 'featured-img-small', 1800, 250, true ); // (cropped)
+    add_image_size( 'featured-img-small', 1800, 300, true ); // (cropped)
     add_image_size( 'homeSlider', 1800, 375, true); // (Not cropped)
-    add_image_size( 'gallery', 300, 200, false ); // (cropped)
+    add_image_size( 'gallery', 300, 200, false ); // (Not cropped)
     add_image_size( 'media-block', 320, 220, true); // (cropped)
     add_image_size( 'sponsor', 600, 400, true); // (cropped)
 }
