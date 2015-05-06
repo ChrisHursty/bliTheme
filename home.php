@@ -46,7 +46,7 @@
             <div class="bliSearchInput">
                 <input type="text" placeholder="Search Food, Products, Places" />
                 <div class="bliFormButton">
-                    <a href=""><img src="/wp-content/themes/bli-wp-theme/assets/svg/circle-right.svg" alt="Search Food, Products, Places"></a>
+                    <a href=""><img src="../assets/png/circle-right.png" alt="Search Food, Products, Places"></a>
                 </div>  
             </div> <!-- /bliSearchInput -->
         </div> <!-- /row -->

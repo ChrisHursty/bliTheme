@@ -79,7 +79,7 @@ function open_graph_socials() { ?>
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
     <meta property="og:description" content="<?php bloginfo('description'); ?>" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/wp-content/themes/bli-wp-theme/assets/logo.jpg" /> <?php } ?>
+    <meta property="og:image" content="../assets/logo.jpg" /> <?php } ?>
 <?php }
 add_action( 'wp_head', 'open_graph_socials' );
 

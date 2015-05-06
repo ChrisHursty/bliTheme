@@ -14,11 +14,12 @@
 
 // Slider Area
 .sliderHome {
+    height: 375px;
     .slick-slide {
-        height: 375px;
         img {
             width: 100%;
             overflow: hidden;
+            height: 375px;
         }
         @media #{$small-only} {
             height: 140px;
@@ -137,13 +138,13 @@
             }
         }
         .facebook {
-            background-image: url("/wp-content/themes/bli-wp-theme/assets/svg/facebook.png");
+            background-image: url("../assets/svg/facebook.png");
         }
         .twitter {
-            background-image: url("/wp-content/themes/bli-wp-theme/assets/svg/twitter.png");
+            background-image: url("../assets/svg/twitter.png");
         }
         .instagram {
-            background-image: url("/wp-content/themes/bli-wp-theme/assets/svg/instagram.png");
+            background-image: url("../assets/svg/instagram.png");
         }
     }
     @media #{$small-only} {

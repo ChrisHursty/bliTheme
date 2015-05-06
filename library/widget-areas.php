@@ -12,9 +12,20 @@ function bliTheme_sidebar_widgets() {
 	));
 
 	register_sidebar(array(
-			'id'            => 'sidebar-places',
-			'name'          => __('Places Sidebar', 'bli-theme'),
-			'description'   => __('Drag widgets to this sidebar container.', 'bli-theme'),
+			'id'            => 'sidebar-merchants',
+			'name'          => __('Merchants Sidebar', 'bli-theme'),
+			'description'   => __('Drag widgets to this sidebar container. Will show up on all Merchants Pages.', 'bli-theme'),
+			'before_widget' => '<article id="%1$s" class="row widget %2$s"><div class="small-12 columns">',
+			'after_widget'  => '</div></article>',
+			'before_title'  => '<h6>',
+			'after_title'   => '</h6>'
+			
+	));
+
+	register_sidebar(array(
+			'id'            => 'sidebar-attractions',
+			'name'          => __('Attractions Sidebar', 'bli-theme'),
+			'description'   => __('Drag widgets to this sidebar container. Will show up on all Attractions Pages.', 'bli-theme'),
 			'before_widget' => '<article id="%1$s" class="row widget %2$s"><div class="small-12 columns">',
 			'after_widget'  => '</div></article>',
 			'before_title'  => '<h6>',
