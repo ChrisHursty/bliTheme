@@ -1,4 +1,30 @@
 // All Archive Page Styles - Unless Stated Otherwise
+.archiveExcerpt {
+    text-align: center;
+    .archivePageTitle {
+        color: $brightGreen;
+        font-size: 1.75rem;
+    }
+    article {
+        margin-left: 12%;
+        margin-right: 12%;
+    }   
+}
+
+.attractionExcerpt {
+    text-align: center;
+    .archivePageTitle {
+        color: $pink;
+        font-size: 1.75rem;
+    }
+    article {
+        margin-left: 12%;
+        margin-right: 12%;
+    }   
+}
+
+
+
 .archiveBlock {
     
     .archiveAnchor {
@@ -16,14 +42,15 @@
         img {
             width: 100%;
             max-height: 320px;
-            height: 320px;
-            padding: -12px;
+            height: 220px;
+            padding: 0px;
             transition: all .2s ease-in-out;
             &:hover {
                 transform: scale(1.02);
             }
         }
     }
+
     .archiveText {
         border: 1px solid $smoke;
         padding: 12px;
@@ -40,6 +67,12 @@
                 size: 1.125rem;
             };
         }
+
+        .taxTitle {
+            text-align: left;
+            letter-spacing: 0;
+        }
+
         .archiveAddress {
             color: $steel;
             font: {
@@ -51,4 +84,24 @@
             }
         }    
     }   
+}
+
+.seeAll {
+    float: right;
+    display: inline;
+    color: $brightGreen;
+    text-transform: uppercase;
+    line-height: 1;
+    font: {
+        family: $sans-serif;
+        size: 12px;
+        weight: bold;
+    };
+    span {
+        font-size: 18px;
+    }
+}
+
+.attractionsSeeAll {
+    color: $pink;
 }

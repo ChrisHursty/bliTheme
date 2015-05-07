@@ -55,17 +55,17 @@ add_action( 'init', 'bli_merchants_custom_post_type', 0 );
 function merchants_taxonomy() {
 
     $labels = array(
-        'name'                       => _x( 'Merchants', 'Taxonomy General Name', 'bli-theme' ),
-        'singular_name'              => _x( 'Merchant', 'Taxonomy Singular Name', 'bli-theme' ),
-        'menu_name'                  => __( 'Merchants', 'bli-theme' ),
-        'all_items'                  => __( 'All Merchants', 'bli-theme' ),
+        'name'                       => _x( 'Type of Merchants', 'Taxonomy General Name', 'bli-theme' ),
+        'singular_name'              => _x( 'Type of Merchant', 'Taxonomy Singular Name', 'bli-theme' ),
+        'menu_name'                  => __( 'Types of Merchants', 'bli-theme' ),
+        'all_items'                  => __( 'All Types of Merchants', 'bli-theme' ),
         'parent_item'                => __( 'Parent Item', 'bli-theme' ),
         'parent_item_colon'          => __( 'Parent Item:', 'bli-theme' ),
-        'new_item_name'              => __( 'New Merchant Name', 'bli-theme' ),
-        'add_new_item'               => __( 'Add New Merchant', 'bli-theme' ),
-        'edit_item'                  => __( 'Edit Merchant', 'bli-theme' ),
-        'update_item'                => __( 'Update Merchant', 'bli-theme' ),
-        'view_item'                  => __( 'View Merchant', 'bli-theme' ),
+        'new_item_name'              => __( 'New Merchant Type Name', 'bli-theme' ),
+        'add_new_item'               => __( 'Add New Merchant Type', 'bli-theme' ),
+        'edit_item'                  => __( 'Edit Merchant Type', 'bli-theme' ),
+        'update_item'                => __( 'Update Merchant Type', 'bli-theme' ),
+        'view_item'                  => __( 'View Merchant Type', 'bli-theme' ),
         'separate_items_with_commas' => __( 'Separate items with commas', 'bli-theme' ),
         'add_or_remove_items'        => __( 'Add or remove items', 'bli-theme' ),
         'choose_from_most_used'      => __( 'Choose from the most used', 'bli-theme' ),
@@ -75,12 +75,12 @@ function merchants_taxonomy() {
     );
     $args = array(
         'labels'                     => $labels,
-        'hierarchical'               => true,
+        'hierarchical'               => false,
         'public'                     => true,
         'show_ui'                    => true,
         'show_admin_column'          => true,
-        'show_in_nav_menus'          => true,
-        'show_tagcloud'              => true,
+        'show_in_nav_menus'          => false,
+        'show_tagcloud'              => false,
         'query_var'                  => 'merchants',
     );
     register_taxonomy( 'merchants', array( 'merchants', ' post' ), $args );
@@ -143,17 +143,17 @@ add_action( 'init', 'bli_attractions_custom_post_type', 0 );
 function attractions_taxonomy() {
 
     $labels = array(
-        'name'                       => _x( 'Attractions', 'Taxonomy General Name', 'bli-theme' ),
-        'singular_name'              => _x( 'Attraction', 'Taxonomy Singular Name', 'bli-theme' ),
-        'menu_name'                  => __( 'Attractions', 'bli-theme' ),
-        'all_items'                  => __( 'All Attractions', 'bli-theme' ),
+        'name'                       => _x( 'Type of Attractions', 'Taxonomy General Name', 'bli-theme' ),
+        'singular_name'              => _x( 'Type of Attraction', 'Taxonomy Singular Name', 'bli-theme' ),
+        'menu_name'                  => __( 'Types of Attractions', 'bli-theme' ),
+        'all_items'                  => __( 'All Attractions Types', 'bli-theme' ),
         'parent_item'                => __( 'Parent Item', 'bli-theme' ),
         'parent_item_colon'          => __( 'Parent Item:', 'bli-theme' ),
-        'new_item_name'              => __( 'New Attraction Name', 'bli-theme' ),
-        'add_new_item'               => __( 'Add New Attraction', 'bli-theme' ),
-        'edit_item'                  => __( 'Edit Attraction', 'bli-theme' ),
-        'update_item'                => __( 'Update Attraction', 'bli-theme' ),
-        'view_item'                  => __( 'View Attraction', 'bli-theme' ),
+        'new_item_name'              => __( 'New Attraction Type', 'bli-theme' ),
+        'add_new_item'               => __( 'Add New Attraction Type', 'bli-theme' ),
+        'edit_item'                  => __( 'Edit Attraction Type', 'bli-theme' ),
+        'update_item'                => __( 'Update Attraction Type', 'bli-theme' ),
+        'view_item'                  => __( 'View Attraction Type', 'bli-theme' ),
         'separate_items_with_commas' => __( 'Separate items with commas', 'bli-theme' ),
         'add_or_remove_items'        => __( 'Add or remove items', 'bli-theme' ),
         'choose_from_most_used'      => __( 'Choose from the most used', 'bli-theme' ),
@@ -163,12 +163,12 @@ function attractions_taxonomy() {
     );
     $args = array(
         'labels'                     => $labels,
-        'hierarchical'               => true,
+        'hierarchical'               => false,
         'public'                     => true,
         'show_ui'                    => true,
         'show_admin_column'          => true,
-        'show_in_nav_menus'          => true,
-        'show_tagcloud'              => true,
+        'show_in_nav_menus'          => false,
+        'show_tagcloud'              => false,
         'query_var'                  => 'attractions',
     );
     register_taxonomy( 'attractions', array( 'attractions', ' post' ), $args );

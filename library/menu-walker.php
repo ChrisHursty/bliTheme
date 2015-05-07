@@ -1,6 +1,6 @@
 <?php
 /**
- * Customize the output of menus for Foundation top bar
+ * Customize the output of menus for BLI Theme top bar
  */
 if (!class_exists('bliTheme_top_bar_walker')) :
 class bliTheme_top_bar_walker extends Walker_Nav_Menu {

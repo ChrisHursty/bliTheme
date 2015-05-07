@@ -39,6 +39,23 @@ if( !empty($attractions) ): ?>
       foreach($categories as $category) { 
         echo '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>,  '; } 
     ?>
+    
+    <?php
+    // Shows image for custom taxonomy
+    $tax_terms = get_terms($taxonomy);
+    $title_div = '<div class="archiveText"><div class="archiveTitle taxTitle">';
+    $terms = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'attractions') );
+    if ( ! empty( $terms ) ) {
+        echo '<ul class="medium-block-grid-3">';
+        foreach( (array) $terms as $term ) {
+            echo '<li class="archiveBlock">' . '<div class="archiveImg taxImg">' . wp_get_attachment_image( $term->image_id, 'taxonomy-thumb' ) . $title_div . $term->name;
+            get_template_part('parts/see_all_taxonomy');
+            echo '<div class="seeAll"><span>&#9656;</span> See All</div>';
+            echo '</div></div>';
+        }
+        echo '</div></li></ul>';
+    }; ?>
+
     </div>
 
     <div class="small-12 large-12 columns" role="main">

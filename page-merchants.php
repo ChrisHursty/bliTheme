@@ -29,16 +29,34 @@ if( !empty($merchants) ): ?>
 <div class="row">
 <!-- Row for main content area -->
     <div class="small-12 large-12 columns merchantCategories" role="main">
+    
     <?php
-    // List All Categories like Breadcrumbs
-    $args = array(
-      'orderby' => 'name',
-      'order'   => 'ASC'
-      );
-    $categories = get_categories($args);
-      foreach($categories as $category) { 
-        echo '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>,  '; } 
+    // Shows image for custom taxonomy
+    $terms = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'merchants') );
+    if ( ! empty( $terms ) ) {
+        echo '';
+        foreach( (array) $terms as $term ) {
+            echo '<a href="' . get_category_link( $term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name.'</a> &#9656;  ';
+        }
+    }; 
     ?>
+
+    <?php
+    // Shows image for custom taxonomy
+    $tax_terms = get_terms($taxonomy);
+    $title_div = '<div class="archiveText"><div class="archiveTitle taxTitle">';
+    $terms = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'merchants') );
+    if ( ! empty( $terms ) ) {
+        echo '<ul class="medium-block-grid-3">';
+        foreach( (array) $terms as $term ) {
+            echo '<li class="archiveBlock">' . '<div class="archiveImg taxImg">' . wp_get_attachment_image( $term->image_id, 'taxonomy-thumb' ) . $title_div . $term->name;
+            get_template_part('parts/see_all_taxonomy');
+            echo '<div class="seeAll"><span>&#9656;</span> See All</div>';
+            echo '</div></div>';
+        }
+        echo '</div></li></ul>';
+    }; ?>
+    
     </div>
 
     <div class="small-12 large-12 columns" role="main">
