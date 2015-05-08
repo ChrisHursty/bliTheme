@@ -28,8 +28,8 @@ function bli_merchants_custom_post_type() {
         'description'         => __( 'Merchants', 'bli-theme' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
-        'taxonomies'          => array( 'post_tag' ),
-        'hierarchical'        => false,
+        'taxonomies'          => array( 'merchants', 'post_tag' ),
+        'hierarchical'        => true,
         'public'              => true,
         'show_ui'             => true,
         'show_in_menu'        => true,
@@ -75,7 +75,7 @@ function merchants_taxonomy() {
     );
     $args = array(
         'labels'                     => $labels,
-        'hierarchical'               => false,
+        'hierarchical'               => true,
         'public'                     => true,
         'show_ui'                    => true,
         'show_admin_column'          => true,
@@ -117,7 +117,7 @@ function bli_attractions_custom_post_type() {
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
         'taxonomies'          => array( 'post_tag' ),
-        'hierarchical'        => false,
+        'hierarchical'        => true,
         'public'              => true,
         'show_ui'             => true,
         'show_in_menu'        => true,
@@ -227,6 +227,108 @@ function bli_sponsors() {
 add_action( 'init', 'bli_sponsors', 0 );
 
 
+// Register Custom Post Type for Events
+function bli_event_post_type() {
+
+    $labels = array(
+        'name'                => _x( 'Events', 'Post Type General Name', 'bli-theme' ),
+        'singular_name'       => _x( 'Event', 'Post Type Singular Name', 'bli-theme' ),
+        'menu_name'           => __( 'Events', 'bli-theme' ),
+        'name_admin_bar'      => __( 'Events', 'bli-theme' ),
+        'parent_item_colon'   => __( 'Parent Item:', 'bli-theme' ),
+        'all_items'           => __( 'All Events', 'bli-theme' ),
+        'add_new_item'        => __( 'Add New Event', 'bli-theme' ),
+        'add_new'             => __( 'Add New', 'bli-theme' ),
+        'new_item'            => __( 'New Event', 'bli-theme' ),
+        'edit_item'           => __( 'Edit Event', 'bli-theme' ),
+        'update_item'         => __( 'Update Event', 'bli-theme' ),
+        'view_item'           => __( 'View Event', 'bli-theme' ),
+        'search_items'        => __( 'Search Event', 'bli-theme' ),
+        'not_found'           => __( 'Not found', 'bli-theme' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'bli-theme' ),
+    );
+    $rewrite = array(
+        'slug'                => 'event',
+        'with_front'          => true,
+        'pages'               => true,
+        'feeds'               => true,
+    );
+    $args = array(
+        'label'               => __( 'event_post_type', 'bli-theme' ),
+        'description'         => __( 'Event Post Type', 'bli-theme' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', ),
+        'taxonomies'          => array( 'event_type', 'category', 'post_tag' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'menu_position'       => 7,
+        'menu_icon'           => 'dashicons-calendar-alt',
+        'show_in_admin_bar'   => true,
+        'show_in_nav_menus'   => false,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'rewrite'             => $rewrite,
+        'capability_type'     => 'page',
+    );
+    register_post_type( 'event_post_type', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'bli_event_post_type', 0 );
+
+
+// Register Custom Taxonomy for Events
+function bli_event_category_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Event Category', 'Taxonomy General Name', 'bli-theme' ),
+        'singular_name'              => _x( 'Event Category', 'Taxonomy Singular Name', 'bli-theme' ),
+        'menu_name'                  => __( 'Event Category', 'bli-theme' ),
+        'all_items'                  => __( 'All Event Categories', 'bli-theme' ),
+        'parent_item'                => __( 'Parent Event Category', 'bli-theme' ),
+        'parent_item_colon'          => __( 'Parent Category:', 'bli-theme' ),
+        'new_item_name'              => __( 'New Event Category Name', 'bli-theme' ),
+        'add_new_item'               => __( 'Add Event Category', 'bli-theme' ),
+        'edit_item'                  => __( 'Edit Event Category', 'bli-theme' ),
+        'update_item'                => __( 'Update Event Category', 'bli-theme' ),
+        'view_item'                  => __( 'View Event Category', 'bli-theme' ),
+        'separate_items_with_commas' => __( 'Separate Event Categories with commas', 'bli-theme' ),
+        'add_or_remove_items'        => __( 'Add or remove Event Categories', 'bli-theme' ),
+        'choose_from_most_used'      => __( 'Choose from the most used', 'bli-theme' ),
+        'popular_items'              => __( 'Popular Event Categories', 'bli-theme' ),
+        'search_items'               => __( 'Search Event Categories', 'bli-theme' ),
+        'not_found'                  => __( 'Not Found', 'bli-theme' ),
+    );
+    $rewrite = array(
+        'slug'                       => 'event_category',
+        'with_front'                 => true,
+        'hierarchical'               => false,
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => false,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => false,
+        'show_tagcloud'              => true,
+        'query_var'                  => 'event_category',
+        'rewrite'                    => $rewrite,
+    );
+    register_taxonomy( 'event_category', array( 'event_post_type', 'post' ), $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'bli_event_category_taxonomy', 0 );
+
+
+
 // Register Custom Post Type for Home Page Slider
 function bli_homeSlider() {
     $labels = array(
@@ -260,13 +362,13 @@ function bli_homeSlider() {
         'hierarchical'      => false,
         'rewrite'           => array('slug' => 'slides', 'with_front' => false ),
         'supports'          => $supports,
-        'menu_position'     => 6,
+        'menu_position'     => 10,
         'menu_icon'         => 'dashicons-images-alt2',
         'taxonomies'        => $taxonomies
      );
      register_post_type('slides',$post_type_args);
 }
 add_action('init', 'bli_homeSlider');
-  
+
 
 ?>
