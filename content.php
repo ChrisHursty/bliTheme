@@ -18,7 +18,7 @@
             if( 'merchants' == get_post_type( ) ) { ?>
                 <div class="">
                     <div class="">
-                        <?php echo get_the_term_list( $post->ID, 'business', 'Type of Merchants: ', ', ', ''); ?>
+                        <?php echo get_the_term_list( $post->ID, 'merchants', 'Type of Merchants: ', ', ', ''); ?>
                     </div>
                 </div>
             <?php } ?>

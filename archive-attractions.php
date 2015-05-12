@@ -1,29 +1,34 @@
-<?php get_header(); ?>
+<?php get_header();
+/*
+Taxonomy Index Page - For Attractions
+*/
+
+?>
 
 <?php 
-$attractions = get_posts( array(
-   'post_type'      => 'attractions', 
+$markers = get_posts( array(
+   'post_type'      => 'attractions',
    'posts_per_page' => -1
 ));
 
-if( !empty($attractions) ): ?>
+if( !empty($markers) ): ?>
 
 <div class="acf-map">
-  <?php foreach($attractions as $attraction): ?>
+  <?php foreach($markers as $marker): ?>
     <?php
-        $location = get_field('attraction_address',$attraction->ID);
+        $location = get_field('attraction_address',$marker->ID);
         if( !empty($location) ): ?>
         <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
         <?php endif; ?>
   <?php endforeach; ?>
-
-</div> 
+  
+</div>
 
 <?php endif; ?>
 
 <div class="row">
 <!-- Row for main content area -->
-<div class="small-12 large-12 columns merchantCategories" role="main">
+<div class="small-12 large-12 columns archiveCategories" role="main">
     <div class="row">
         <div class="socialLinks">
             <ul>
@@ -36,47 +41,112 @@ if( !empty($attractions) ): ?>
         <div class="bliSearchInput">
             <input type="text" placeholder="Search Food, Products, Places" />
             <div class="bliFormButton">
-                <a href=""><img src="../assets/png/circle-right.png" alt="Search Food, Products, Places"></a>
+                <a href=""><img src="http://dev.bronxlittleitaly.com/wp-content/themes/bli-wp-theme/assets/svg/circle-right.svg" alt="Search Food, Products, Places"></a>
             </div>  
         </div> <!-- /bliSearchInput -->
     </div> <!-- /row -->
-    <div class="row attractionExcerpt">
+    <div class="row archiveExcerpt">
         <h1 class="archivePageTitle">Attractions</h1>
         <article>
-            <p>
-                The neighborhood has an eclectic mix of merchants. Whether you want fresh ground coffee beans or the finest cannoli, we’ve got it all! Have a look around and find out what we mean!
-            </p>
+            <?php get_template_part('parts/attractions_content'); ?>
             <p>
                 <?php
-                // Shows all taxonomies for merchants
-                $terms = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'attractions') );
-                if ( ! empty( $terms ) ) {
-                    echo '';
-                    foreach( (array) $terms as $term ) {
-                        echo '<a href="' . get_category_link( $term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name.'</a> &#9656;  ';
+
+                // Breadcrumb Style Inline List of all Businesses
+                $args = array( 'hide_empty=0' );
+
+                $terms = get_terms( 'attractions', $args );
+                if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+                    $count = count( $terms );
+                    $i = 0;
+                    $term_list = '<p>';
+                    foreach ( $terms as $term ) {
+                        $i++;
+                        $term_list .= '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'See All %s', 'bli-theme' ), $term->name ) . '">' . $term->name . '</a>';
+                        if ( $count != $i ) {
+                            $term_list .= ' &#9656; ';
+                        }
+                        else {
+                            $term_list .= '</p>';
+                        }
                     }
-                }; 
+                    echo $term_list;
+                };
                 ?>
-                
             </p>
         </article>
     </div>
-    
-    <?php
-    // Shows image for custom taxonomy
-    $tax_terms = get_terms($taxonomy);
-    $title_div = '<div class="archiveText"><div class="archiveTitle taxTitle">';
-    $terms = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'attractions') );
-    if ( ! empty( $terms ) ) {
-        echo '<ul class="medium-block-grid-3">';
-        foreach( (array) $terms as $term ) {
-            echo '<li class="archiveBlock">' . '<div class="archiveImg taxImg">' . wp_get_attachment_image( $term->image_id, 'taxonomy-thumb' ) . $title_div . $term->name;
-            get_template_part('parts/see_all_taxonomy');
-            echo '<div class="seeAll attractionsSeeAll"><span>&#9656;</span> See All</div>';
-            echo '</div></div>';
-        }
-        echo '</div></li></ul>';
-    }; ?>
 
+
+    <div class="row">
+        <div class="small-12 large-12 columns" role="main">
+            <ul class="medium-block-grid-3">
+            <?php if ( have_posts() ) : ?>
+                    
+                <?php /* Start the Loop */ ?>
+                <?php while ( have_posts() ) : the_post(); ?>
+                        
+                    <li class="archiveBlock">
+                        <div class="archiveAnchor">
+                            <a href="<?php the_permalink(); ?>">
+                                <div class="archiveImg">
+                                    <?php the_post_thumbnail(); ?>    
+                                </div>
+                            </a>
+                            <div class="archiveText">
+                                <div class="archiveTitle">
+                                    <?php the_title(); ?>    
+                                </div>
+                            
+                                <div class="placeAddress">
+                                    <h6>Address</h6>
+                                    <?php 
+                                                            
+                                    // Returns the Address from Google Map Place
+                                    $contact_address = get_field('attraction_address');
+                                    ?>
+                                    <?php $address = explode( "," , $contact_address['address']);
+                                    echo $address[0]; //street, number
+                                    ?><br />
+                                    <?php
+                                    echo $address[1].','.$address[2]; //city, state + zip
+                                    ?>
+                                
+                                    <div class="placeNumber">
+                                        <h6>Phone Number</h6>
+                                        <?php the_field('attraction_phone'); ?>    
+                                    </div>
+                                    <?php 
+                                    if( $website = get_field('attraction_website') ) {
+                                        ?> 
+                                        <div class="placeWeb">
+                                            <h6>Website</h6>
+                                            <a href="<?php the_field('attraction_website'); ?>" target="_blank">
+                                                <?php the_field('attraction_website'); ?>
+                                            </a>  
+                                        </div>
+                                        <?php
+                                    }; ?>
+                                </div> <!-- /placeAddress -->
+                            </div> <!-- /archiveText --> 
+                        </div> <!-- /archiveAnchor -->
+
+                    </li>
+                <?php endwhile; ?>
+
+            <?php endif; // end have_posts() check ?>
+            </ul>
+
+
+            <?php /* Display navigation to next/previous pages when applicable */ ?>
+            <?php if ( function_exists('bliTheme_pagination') ) { bliTheme_pagination(); } else if ( is_paged() ) { ?>
+                <nav id="post-nav">
+                    <div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'bli-theme' ) ); ?></div>
+                    <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'bli-theme' ) ); ?></div>
+                </nav>
+            <?php } ?>
+
+        </div> <!-- small-12 large-12 columns -->
+    </div> <!-- /row -->
 </div>
 <?php get_footer(); ?>

@@ -4,24 +4,25 @@ Taxonomy Index Page - For Business Types/Merchants
  */
 
 ?>
-
+<!-- <div class="featuredImage-small">
+    <?php if ( has_post_thumbnail() ) {
+    the_post_thumbnail( 'featured-img-sm' );
+    } else { ?>
+    <img src="<?php bloginfo('template_directory'); ?>/assets/default-featured-img.jpg" alt="Bronx Little Italy" />
+    <?php } ?>
+</div> -->
 <?php 
-$merchants = array(
-    'post_type' => 'post',
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'business',
-            'field'    => 'slug',
-        ),
-    ),
-);
+$markers = get_posts( array(
+   'post_type'      => 'merchants',
+   'posts_per_page' => -1
+));
 
-if( !empty($merchants) ): ?>
+if( !empty($markers) ): ?>
 
 <div class="acf-map">
-  <?php foreach($merchants as $merchant): ?>
+  <?php foreach($markers as $marker): ?>
     <?php
-        $location = get_field('merchant_address',$merchant->ID);
+        $location = get_field('merchant_address',$marker->ID);
         if( !empty($location) ): ?>
         <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
         <?php endif; ?>
@@ -33,7 +34,7 @@ if( !empty($merchants) ): ?>
 
 <div class="row">
 <!-- Row for main content area -->
-<div class="small-12 large-12 columns merchantCategories" role="main">
+<div class="small-12 large-12 columns archiveCategories" role="main">
     <div class="row">
         <div class="socialLinks">
             <ul>
@@ -46,23 +47,21 @@ if( !empty($merchants) ): ?>
         <div class="bliSearchInput">
             <input type="text" placeholder="Search Food, Products, Places" />
             <div class="bliFormButton">
-                <a href=""><img src="../assets/png/circle-right.png" alt="Search Food, Products, Places"></a>
+                <a href=""><img src="http://dev.bronxlittleitaly.com/wp-content/themes/bli-wp-theme/assets/svg/circle-right.svg" alt="Search Food, Products, Places"></a>
             </div>  
         </div> <!-- /bliSearchInput -->
     </div> <!-- /row -->
     <div class="row archiveExcerpt">
         <h1 class="archivePageTitle">Merchants</h1>
         <article>
-            <p>
-                The neighborhood has an eclectic mix of merchants. Whether you want fresh ground coffee beans or the finest cannoli, we’ve got it all! Have a look around and find out what we mean!
-            </p>
+            <?php get_template_part('parts/merchants_content'); ?>
             <p>
                 <?php
 
                 // Breadcrumb Style Inline List of all Businesses
                 $args = array( 'hide_empty=0' );
 
-                $terms = get_terms( 'business', $args );
+                $terms = get_terms( 'merchants_type', $args );
                 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
                     $count = count( $terms );
                     $i = 0;
@@ -88,13 +87,12 @@ if( !empty($merchants) ): ?>
     // Shows image for custom taxonomy (via plugin)
     $tax_terms = get_terms($taxonomy);
     $title_div = '<div class="archiveText"><div class="archiveTitle taxTitle">';
-    $terms = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'business') );
+    $terms = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'merchants_type') );
     if ( ! empty( $terms ) ) {
         echo '<ul class="medium-block-grid-3">';
         foreach( (array) $terms as $term ) {
             echo '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'See All %s', 'bli-theme' ), $term->name ) . '">';
             echo '<li class="archiveBlock">' . '<div class="archiveImg taxImg">' . wp_get_attachment_image( $term->image_id, 'taxonomy-thumb' ) . $title_div . $term->name;
-            get_template_part('parts/see_all_taxonomy');
             echo '<div class="seeAll"><span>&#9656;</span> See All</div>';
             echo '</div></div>';
         }

@@ -8,12 +8,6 @@
 </div>
 
 <div class="row">
-	<?php
-	if ( is_tax( 'butchers', 'merchants' ) ) {
-
-      get_template_part( 'single', 'parts/merchants' );
-
-   }; ?>
 	<div class="small-12 large-8 columns" role="main">
 
 	<?php do_action('bliTheme_before_content'); ?>

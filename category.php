@@ -23,7 +23,7 @@ if( !empty($merchants) ): ?>
 <?php endif; ?> 
     <div class="row">
         <div class="small-12 large-12 columns" role="main">
-            <div class="merchantCategories archiveExcerpt" role="main">
+            <div class="archiveCategories archiveExcerpt" role="main">
                 <h1 class="archivePageTitle">Category Index Page</h1>
             </div>
             <div class="row">

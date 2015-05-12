@@ -1,6 +1,6 @@
 <?php
 /**
- * Single Attraction Template
+ * Single Event Template
  *
  * @package bliTheme 
  */
@@ -11,7 +11,7 @@ get_header(); ?>
     
     <?php 
     // Map from ACF Google Map
-    $location = get_field('attraction_address');
+    $location = get_field('event_address');
 
     if( !empty($location) ):
     ?>
@@ -34,12 +34,12 @@ get_header(); ?>
         <?php while (have_posts()) : the_post(); ?>
             <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
                 <?php do_action('bliTheme_post_before_entry_content'); ?>
-                <?php get_template_part( 'content', 'attractions' ); ?>
+                <?php get_template_part( 'content', 'events' ); ?>
             </article>
         <?php endwhile;?>
         <?php do_action('bliTheme_after_content'); ?>
     </div>
-    <?php get_sidebar('attractions'); ?>
+    <?php get_sidebar('events'); ?>
 </div>
 <?php get_footer(); ?>
 
