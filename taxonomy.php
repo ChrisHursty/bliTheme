@@ -34,48 +34,24 @@ if( !empty($merchants) ): ?>
                 <ul>
                     <li class="facebook"><a href="http://facebook.com/BronxLittleItaly" target="_blank"></a></li>
                     <li class="twitter"><a href="http://twitter.com/BXLittleItaly" target="_blank"></a></li>
-a<li class="instagram"><a href="http://instagram.com/bronxlittleitaly/" target="_blank"></a></li>    
+                    <li class="instagram"><a href="http://instagram.com/bronxlittleitaly/" target="_blank"></a></li>    
                 </ul>
             </div> <!-- /socialLinks -->
-
-            <div class="bliSearchInput">
-                <input type="text" placeholder="Search Food, Products, Places" />
-                <div class="bliFormButton">
-                    <a href=""><img src="../assets/png/circle-right.png" alt="Search Food, Products, Places"></a>
-                </div>  
-            </div> <!-- /bliSearchInput -->
+            
+            <form role="search" method="get" class="bliSearchInput" action="<?php echo home_url( '/' ); ?>">
+				<label>
+					<input type="search" placeholder="Search Food, Products, Places" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+				</label>
+	            <a href=""><input type="submit" class="bliFormButton" /></a>
+			</form> <!-- /bliSearchInput -->
         </div> <!-- /row -->
+        <div class="row">
+            <?php if ( function_exists('yoast_breadcrumb') ) {
+            yoast_breadcrumb('<p id="breadcrumbs">','</p>');
+            } ?>
+        </div>
 
         <div class="row archiveExcerpt">
-            <section>
-                <h1>Hello: <?php get_page_template_slug( $post->ID ); ?></h1>
-                <?php
-                // $bli_slug = 
-                // $bli_category_tax = get_queried_object()->name;
-                // if($tax_term->name == 'Butchers') {
-                //     echo '<h1>Hello World</h1>';
-                // }
-                $args = array(
-                    'post_type' => 'merchants',
-                    'tax_query' => array(
-                        'relation' => 'AND',
-                        array(
-                            'taxonomy' => 'merchants_type',
-                            'field'    => 'slug',
-                            'terms'    => array( 'butchers', 'bakers' ),
-                        ),
-                        array(
-                            'taxonomy' => 'merchants_type',
-                            'field'    => 'term_id',
-                            'terms'    => array( 'delicatessens', 'fish-markets' ),
-                            'operator' => 'NOT IN',
-                        ),
-                    ),
-                );
-                $query = new WP_Query( $args );
-                    
-                ?>
-            </section>
             <h1 class="archivePageTitle">
                 <?php 
                     $current_merchant = get_queried_object();
@@ -83,13 +59,10 @@ a<li class="instagram"><a href="http://instagram.com/bronxlittleitaly/" target="
                     echo 'Merchant Type: ' . $current_merchant->name;
                 ?>
             </h1>
-
             <article>
-
                 <p>
                     The neighborhood has an eclectic mix of merchants. Whether you want fresh ground coffee beans or the finest cannoli, we’ve got it all! Have a look around and find out what we mean!
-                </p>
-                <p>
+
                     <?php
 
                     // Breadcrumb Style Inline List of all Businesses
@@ -118,35 +91,69 @@ a<li class="instagram"><a href="http://instagram.com/bronxlittleitaly/" target="
         </div>
         <div class="row">
             <?php
-            $post_type = 'merchants';
-            $tax = 'merchants_type';
-            $tax_terms = get_terms($tax,'hide_empty=0');
+                $current_merchant_type = get_queried_object();
+                $taxonomy_type         = get_taxonomy($current_merchant_type->taxonomy);
 
-            
-
-            //list everything
-            if ($tax_terms) {
-              foreach ($tax_terms as $tax_term) {
-                $args=array(
-                      'post_type' => $post_type,
-                      "$tax" => $tax_term->slug,
-                      'post_status' => 'publish',
-                      'posts_per_page' => -1
-                    );
-
-                    $my_query = null;
-                    $my_query = new WP_Query($args);
-                    if( $my_query->have_posts() ) {
-                      echo "<h2 class=\"tax_term-heading\" id=\"".$tax_term->slug."\"> $tax_term->name </h2>";
-                      while ($my_query->have_posts()) : $my_query->the_post(); ?>
-                        <p><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></p>
-                        <?php
-                      endwhile;
-                      echo "<p><a href=\"#top\">Back to top</a></p>";
-                    }
-                    wp_reset_query();
+                if( is_tax('merchants_type', $current_merchant_type) ) {
+                    echo $current_merchant_type->name . ' - Show All';
                 }
-            }
+
+            ?>
+            <hr>
+               
+
+
+            <?php
+            // Shows image for custom taxonomy (via plugin)
+            $tax_terms = get_terms($taxonomy);
+            $title_div = '<div class="archiveText"><div class="archiveTitle taxTitle">';
+            $terms = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'merchants') );
+            if ( ! empty( $terms ) ) {
+                echo '<ul class="medium-block-grid-3">';
+                foreach( (array) $terms as $term ) {
+                    echo '<li class="archiveBlock">' . '<div class="archiveImg taxImg">' . wp_get_attachment_image( $term->image_id, 'taxonomy-thumb' ) . $title_div . $term->name;
+                    get_template_part('parts/see_all_taxonomy');
+                    echo '<div class="seeAll"><span>&#9656;</span> See All</div>';
+                    echo '</div></div>';
+                }
+                echo '</div></li></ul>';
+            }; ?>
+            </ul>
+        </div>
+        <div class="row">
+            <?php
+
+                $post_type = 'merchants';
+                $tax = 'merchants_type';
+                $tax_terms = get_terms($tax,'hide_empty=0');
+
+                //list everything
+                if ($tax_terms) {
+                    echo '<ul class="medium-block-grid-3">';
+                    foreach ($tax_terms as $tax_term) {
+                        $args=array(
+                            'post_type'      => $post_type,
+                            "$tax"           => $tax_term->slug,
+                            //'post_status'  => 'publish',
+                            'posts_per_page' => -1
+                        );
+
+                        $my_query = null;
+                        $my_query = new WP_Query($args);
+                        echo '<li>';
+                        if( $my_query->have_posts() ) {
+                            echo "<h2 class=\"tax_term-heading\" id=\"".$tax_term->slug."\"> $tax_term->name </h2>";
+                            while ($my_query->have_posts()) : $my_query->the_post(); ?>
+                                <p><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></p>
+                            <?php
+                            endwhile;
+                            echo "<p><a href=\"#top\">Back to top</a></p>";
+                        }
+                        echo '</li>';
+                        wp_reset_query();
+                    }
+                }
+
             ?>
         </div>
     </div>

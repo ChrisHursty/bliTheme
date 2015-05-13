@@ -169,31 +169,6 @@ function bli_custom_taxonomies() {
 
     register_taxonomy( 'merchants_type', array( 'merchants' ), $args );
 
-    // Taxonomy for Events (Non-Heirachical)
-    $labels = array(
-        'name'              => _x( 'Types of Events', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Types of Event', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Type of Merchants' ),
-        'all_items'         => __( 'All Types of Events' ),
-        'parent_item'       => __( 'Parent Types of Events' ),
-        'parent_item_colon' => __( 'Parent Types of Events:' ),
-        'edit_item'         => __( 'Edit Type of Events' ),
-        'update_item'       => __( 'Update Type of Events' ),
-        'add_new_item'      => __( 'Add New Type of Events' ),
-        'new_item_name'     => __( 'New Type of Events Name' ),
-        'menu_name'         => __( 'Type of Events' ),
-    );
-
-    $args = array(
-        'hierarchical'      => false,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'events' ),
-    );
-
-    register_taxonomy( 'events_type', array( 'events' ), $args );
 }
 add_action( 'init', 'bli_custom_taxonomies', 0 );
 

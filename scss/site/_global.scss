@@ -122,3 +122,123 @@ button, .button {
     border-bottom: 5px solid $brightBlue;
     margin: 20px 0;
 }
+
+
+// Yoast SEO Breadcrumbs
+#breadcrumbs {
+    font: {
+        size: 12px
+    };
+    margin-left: 20px;
+}
+
+
+// Search Field
+.bliSearchInput {
+    position: relative;
+    float: right;
+    border: 1px solid $silver;
+    border-radius: 15px;
+    width: 340px;
+    label {
+        input {
+            // Remove Default Input Styles
+            border: {
+                style: none;
+                width: 0;
+                color: transparent;
+            };
+            box-shadow: 0 0 0 0;
+            width: 210px;
+            height: 30px;
+            float: left;
+            background-color: transparent;
+            border: 0;
+            margin-bottom: 0 !important;
+            padding: 0 0 0 12px;
+            font-size: 0.75em;
+            font-family: $sans-serif;
+            color: $aluminum;
+            &:focus {
+                border-radius: 15px;
+                width: 340px;
+                background-color: $vapor;
+            }
+        }
+
+        @media #{$small-only} {
+            width: 90%;
+            margin: 5%;
+        }   
+    }    
+}
+
+.bliFormButton {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    height: 26px;
+    width: 26px;
+    padding-top: 1px;
+    background: {
+        image: url('../assets/png/circle-right.png');
+        color: $trueWhite;
+        size: 100%;
+    };
+    opacity: 0.6;
+    border: 0;
+
+    text-indent: -9999px;
+
+    a {
+        display: block;
+    }
+
+    img {
+        height: 24px;
+        width: 24px;
+        opacity: 0.5;
+    }
+}
+
+
+// Social Media Profiles/Menu
+.socialLinks {
+    width: 30%;
+    height: 2.5em;
+    float: left;
+    ul {
+        list-style: none;
+        
+        li {
+            display: inline;
+            float: left;
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);  
+            }
+            
+            a {
+                display: block;
+                height: 2em;
+                width: 2em; 
+            }
+        }
+        .facebook {
+            background-image: url("../assets/svg/facebook.png");
+        }
+        .twitter {
+            background-image: url("../assets/svg/twitter.png");
+        }
+        .instagram {
+            background-image: url("../assets/svg/instagram.png");
+        }
+    }
+    @media #{$small-only} {
+        display: none;
+    }
+}

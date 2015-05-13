@@ -44,13 +44,18 @@ if( !empty($markers) ): ?>
             </ul>
         </div> <!-- /socialLinks -->
 
-        <div class="bliSearchInput">
-            <input type="text" placeholder="Search Food, Products, Places" />
-            <div class="bliFormButton">
-                <a href=""><img src="http://dev.bronxlittleitaly.com/wp-content/themes/bli-wp-theme/assets/svg/circle-right.svg" alt="Search Food, Products, Places"></a>
-            </div>  
-        </div> <!-- /bliSearchInput -->
+         <form role="search" method="get" class="bliSearchInput" action="<?php echo home_url( '/' ); ?>">
+            <label>
+                <input type="search" placeholder="Search Food, Products, Places" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+            </label>
+            <a href=""><input type="submit" class="bliFormButton" /></a>
+        </form> <!-- /bliSearchInput -->
     </div> <!-- /row -->
+    <div class="row">
+        <?php if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb('<p id="breadcrumbs">','</p>');
+        } ?>
+    </div>
     <div class="row archiveExcerpt">
         <h1 class="archivePageTitle">Merchants</h1>
         <article>

@@ -23,9 +23,32 @@ get_header(); ?>
 
 
 <div class="row">
-    <header>
-        <h2 class="entry-title"><?php the_title(); ?></h2>
-    </header>
+    <div class="small-12 large-12 columns" role="main">
+        <div class="row">
+            <div class="socialLinks">
+                <ul>
+                    <li class="facebook"><a href="http://facebook.com/BronxLittleItaly" target="_blank"></a></li>
+                    <li class="twitter"><a href="http://twitter.com/BXLittleItaly" target="_blank"></a></li>
+                    <li class="instagram"><a href="http://instagram.com/bronxlittleitaly/" target="_blank"></a></li>    
+                </ul>
+            </div> <!-- /socialLinks -->
+            
+            <form role="search" method="get" class="bliSearchInput" action="<?php echo home_url( '/' ); ?>">
+				<label>
+					<input type="search" placeholder="Search Food, Products, Places" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+				</label>
+	            <a href=""><input type="submit" class="bliFormButton" /></a>
+			</form> <!-- /bliSearchInput -->
+        </div> <!-- /row -->
+        <div class="row">
+            <?php if ( function_exists('yoast_breadcrumb') ) {
+            yoast_breadcrumb('<p id="breadcrumbs">','</p>');
+            } ?>
+        </div>
+        <header>
+            <h2 class="entry-title"><?php the_title(); ?></h2>
+        </header>
+    </div>
 
     <div class="small-12 large-8 columns" role="main">
 

@@ -18,6 +18,9 @@ function bliTheme_theme_support() {
     // Add post formarts support: http://codex.wordpress.org/Post_Formats
     add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
 
+    // Add HTML5 Markup for Search Forms
+    add_theme_support( 'html5', array( 'search-form' ) );
+
 }
 
 add_action('after_setup_theme', 'bliTheme_theme_support'); 
