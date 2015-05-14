@@ -34,6 +34,7 @@
         border: 1px solid $silver;
         border-radius: 15px;
         width: 50%;
+        height: 32px;
         
         input {
             // Remove Default Input Styles
@@ -50,7 +51,7 @@
             background-color: transparent;
             border: 0;
             margin-bottom: 0 !important;
-            padding: 0 0 0 12px;
+            padding: 8px 0 0 12px;
             font-size: 0.75em;
             font-family: $sans-serif;
             color: $aluminum;
@@ -88,6 +89,9 @@
     width: 50%;
     text-align: right;
     padding: 8px 12px 0 0;
+    label {
+        font-size: 0.775rem !important;
+    }
 }
 
 
@@ -140,7 +144,8 @@ input[type="text"]:focus {
 
 // Override Default Active Top Nav
 .top-bar-section ul li.active > a,
-.top-bar-section ul li.active > a:focus {
+.top-bar-section ul li.active > a:focus,
+.top-bar-section ul li.active > a:hover {
     color: $brightGreen !important;
     border-bottom: 4px solid $brightGreen !important;
     font-weight: bold;
@@ -150,6 +155,9 @@ input[type="text"]:focus {
 .top-bar-section .right li .dropdown {
     background: darken($brightGreen, 20%) !important;
     margin-top: -4px !important;
+}
+.top-bar-section ul li:hover:not(.has-form)>a {
+    color: $brightGreen !important;
 }
 
 .desktopNav .top-bar-section ul li a:focus {
@@ -165,6 +173,25 @@ input[type="text"]:focus {
         border-bottom: 0 !important;
     }
 }
+
+// Desktop Nav Arrow
+.top-bar-section .has-dropdown > a:after {
+    content: "▼";
+    font-size: 6px;
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 5px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.4);
+    border-left-style: solid;
+    margin-right: 0.9375rem;
+    margin-top: -4.5px;
+    position: absolute;
+    top: 0;
+    right: -16px;
+}
+
+
 
 // Mobile Nav Styles
 .tab-bar {
