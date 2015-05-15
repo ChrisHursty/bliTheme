@@ -61,7 +61,7 @@ if( !empty($merchants) ): ?>
             </h1>
             <article>
                 <p>
-                    The neighborhood has an eclectic mix of merchants. Whether you want fresh ground coffee beans or the finest cannoli, we’ve got it all! Have a look around and find out what we mean!
+                    <?php get_template_part('parts/merchants_content'); ?>
 
                     <?php
 

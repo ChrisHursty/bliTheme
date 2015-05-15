@@ -1,36 +1,17 @@
-<?php get_header();
+<?php
 /*
 Taxonomy Index Page - For Business Types/Merchants
  */
 
-?>
-<!-- <div class="featuredImage-small">
-    <?php if ( has_post_thumbnail() ) {
-    the_post_thumbnail( 'featured-img-sm' );
+get_header() ;?>
+<div class="featuredImage-small">
+    <?php if( is_page('merchants') ) {
+        the_post_thumbnail( 'featured-img-sm' );
     } else { ?>
-    <img src="<?php bloginfo('template_directory'); ?>/assets/default-featured-img.jpg" alt="Bronx Little Italy" />
+        <img src="<?php bloginfo('template_directory'); ?>/assets/default-featured-img.jpg" alt="Bronx Little Italy" />
+    } ?>
     <?php } ?>
-</div> -->
-<?php 
-$markers = get_posts( array(
-   'post_type'      => 'merchants',
-   'posts_per_page' => -1
-));
-
-if( !empty($markers) ): ?>
-
-<div class="acf-map">
-  <?php foreach($markers as $marker): ?>
-    <?php
-        $location = get_field('merchant_address',$marker->ID);
-        if( !empty($location) ): ?>
-        <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-        <?php endif; ?>
-  <?php endforeach; ?>
-  
 </div>
-
-<?php endif; ?>
 
 <div class="row">
 <!-- Row for main content area -->
