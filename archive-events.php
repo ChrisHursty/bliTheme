@@ -51,7 +51,7 @@ if( !empty($markers) ): ?>
         } ?>
     </div>
     <div class="row archiveExcerpt">
-        <h1 class="archivePageTitle">Attractions</h1>
+        <h1 class="archivePageTitle">Events</h1>
         <article>
             <?php get_template_part('parts/events_content'); ?>
             <p>
