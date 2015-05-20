@@ -72,7 +72,7 @@ get_header() ;?>
     <?php
     // Shows image for custom taxonomy (via plugin)
     $tax_terms = get_terms($taxonomy);
-    $title_div = '<div class="archiveText"><div class="archiveTitle taxTitle">';
+    $title_div = '<div class="archiveText"><div class="archiveTitle taxTitle left-align">';
     $terms = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'merchants_type') );
     if ( ! empty( $terms ) ) {
         echo '<ul class="medium-block-grid-3">';

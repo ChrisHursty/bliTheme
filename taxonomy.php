@@ -4,6 +4,7 @@
  */
 
 get_header(); ?>
+
 <?php
 
 $merchants = get_posts( array(
@@ -25,7 +26,6 @@ if( !empty($merchants) ): ?>
 </div>
 
 <?php endif; ?>
-
 <div class="row">
     <!-- Row for main content area -->
     <div class="small-12 large-12 columns archiveCategories" role="main">
@@ -108,7 +108,6 @@ if( !empty($merchants) ): ?>
                 echo '</div></li></ul>';
             }; ?>
             </ul>
-        </div>
     </div>
 </div>
 

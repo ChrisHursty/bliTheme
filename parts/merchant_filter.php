@@ -2,6 +2,9 @@
 if(is_tax('merchants_type', 'bakers') ) {
     get_template_part('parts/merchant_term_bakers');
 
+} elseif(is_tax('merchants_type', 'bars-lounges') ) {
+    get_template_part('parts/merchant_term_bars_lounges');
+
 } elseif (is_tax('merchants_type', 'butchers') ) {
     get_template_part('parts/merchant_term_butchers');
 

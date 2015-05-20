@@ -73,28 +73,43 @@
         <section class="homeSection">
             <div class="row recentMediaBlock">
                 <h2>Upcoming &amp; Recent Events</h2>
-                <h5><a href="">View All Events</a></h5>
+                <h5><a href="<?php get_home_url(); ?>/events">View All Events</a></h5>
+                <!-- Events Posts -->
+                <?php 
+                // Query Arguments
+                    $args = array(
+                        'post_type'         => 'events',
+                        'posts_per_page'    => 3
+                    );  
+                    
+                    // The Query
+                    $events_query = new WP_Query( $args );
+                    
+                    // Check if the Query returns any posts
+                    $events_query->have_posts()
+                    
+                // Start the Events Posts ?>
                 <ul class="small-block-grid-1 medium-block-grid-3">
-                <!-- Custom Loop -->
-                <?php $the_query = new WP_Query( 'showposts=3' ); ?>
-                    <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
-
-                    <li class="mediaBlock">
-                        <?php the_post_thumbnail();?>
-                        <div class="facebook"><a href="http://facebook.com/BronxLittleItaly" target="_blank"></a></div>
-                        <div class="twitter"><a href="http://twitter.com/BXLittleItaly" target="_blank"></a></div>
-                        <div class="mediaBlockText">
-                            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-                        </div>
-                    </li>
-                      
-                    <?php endwhile;?>
-                <!-- /Custom Loop -->
+                    <?php       
+                    // The Loop
+                    while ( $events_query->have_posts() ) : $events_query->the_post(); ?>
+                        <li class="mediaBlock">
+                            <?php the_post_thumbnail(); ?>
+                            <div class="facebook"><a href="http://facebook.com/BronxLittleItaly" target="_blank"></a></div>
+                            <div class="twitter"><a href="http://twitter.com/BXLittleItaly" target="_blank"></a></div>
+                            <div class="mediaBlockText">
+                                <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+                            </div>
+                        </li>
+                    <?php endwhile; ?>   
+                <?php // Reset Post Data
+                    wp_reset_postdata();
+                ?>
                 </ul>
+                <!-- /Events Posts -->
             </div> <!-- /row -->
         </section>
         
-
         <!-- Begin Social Media Section -->        
         <section class="homeSection">
             <div class="row">

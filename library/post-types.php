@@ -219,5 +219,56 @@ function bli_homeSlider() {
 }
 add_action('init', 'bli_homeSlider');
 
+/*_____________________________________________________
+
+--- Register Custom Post Type for Home Page Sponsors---
+_______________________________________________________*/
+
+function bli_sponsors() {
+
+    $labels = array(
+        'name'                => _x( 'Sponsors', 'Post Type General Name', 'bli-theme' ),
+        'singular_name'       => _x( 'Sponsor', 'Post Type Singular Name', 'bli-theme' ),
+        'menu_name'           => __( 'Sponsors', 'bli-theme' ),
+        'name_admin_bar'      => __( 'Sponsor', 'bli-theme' ),
+        'parent_item_colon'   => __( 'Parent Item:', 'bli-theme' ),
+        'all_items'           => __( 'All Sponsors', 'bli-theme' ),
+        'add_new_item'        => __( 'Add New Sponsor', 'bli-theme' ),
+        'add_new'             => __( 'Add New', 'bli-theme' ),
+        'new_item'            => __( 'New Sponsor', 'bli-theme' ),
+        'edit_item'           => __( 'Edit Sponsor', 'bli-theme' ),
+        'update_item'         => __( 'Update Sponsor', 'bli-theme' ),
+        'view_item'           => __( 'View Sponsor', 'bli-theme' ),
+        'search_items'        => __( 'Search Sponsors', 'bli-theme' ),
+        'not_found'           => __( 'Not found', 'bli-theme' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'bli-theme' ),
+    );
+    $args = array(
+        'label'               => __( 'sponsor', 'bli-theme' ),
+        'description'         => __( 'Home Page Sponsors Section', 'bli-theme' ),
+        'labels'              => $labels,
+        'supports'            => array( 'custom-fields', ),
+        'taxonomies'          => array( 'category', 'post_tag' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'menu_position'       => 10,
+        'menu_icon'           => 'dashicons-shield',
+        'show_in_admin_bar'   => true,
+        'show_in_nav_menus'   => true,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+    register_post_type( 'sponsor', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'bli_sponsors', 0 );
+
 
 ?>

@@ -53,7 +53,7 @@ if( !empty($markers) ): ?>
     <div class="row archiveExcerpt">
         <h1 class="archivePageTitle">Events</h1>
         <article>
-            <?php get_template_part('parts/events_content'); ?>
+            
             <p>
                 <?php
 
@@ -116,11 +116,15 @@ if( !empty($markers) ): ?>
                                     <?php
                                     echo $address[1].','.$address[2]; //city, state + zip
                                     ?>
-                                
-                                    <div class="placeNumber">
-                                        <h6>Time</h6>
-                                        Starts: <?php the_field('event_start_time'); ?> / Ends: <?php the_field('event_end_time'); ?>
-                                    </div>
+
+                                    <?php
+                                    if( $time = get_field('event_start_time') ) { ?>
+                                        <div class="placeNumber">
+                                            <h6>Time</h6>
+                                            <strong>Starts: <?php the_field('event_start_time'); ?> / Ends: <?php the_field('event_end_time'); ?></strong>
+                                        </div>
+                                    <?php } ?>
+
                                     <div class="placeExcerpt">
                                         <p><?php the_field('event_excerpt'); ?></p>
                                     </div>
