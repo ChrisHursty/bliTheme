@@ -4,7 +4,28 @@
  */
 
 get_header(); ?>
+<?php
+    $merchant_term = 'grocery-stores';
+    $grocerystores = get_field('merchant_address',$merchant->ID);
+    $hursty = new WP_Query(array(
+        'tax_query' => array( 
+            array(
+                'taxonomy' => 'merchants_type', // taxonomy name              
+                'field'    => 'slug',                   
+                'terms'    => array( $merchant_term ), // taxonomy term
+            )
+        )
+    ));
+    
 
+    foreach ($grocerystores as $grocer) {
+        if(!empty($grocer) ) {
+            the_title();
+            the_field('merchant_phone');
+        }
+    }
+
+?>
 <?php
 
 $merchants = get_posts( array(

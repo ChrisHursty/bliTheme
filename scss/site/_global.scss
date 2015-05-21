@@ -240,3 +240,12 @@ button, .button {
         display: none;
     }
 }
+
+// Next and Previous Post Links
+.nextPrevLinks {
+    font: {
+        family: $sans-serif;
+        size: 12px;
+    }
+    text-align: center;
+}

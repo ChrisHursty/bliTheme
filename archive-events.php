@@ -118,7 +118,7 @@ if( !empty($markers) ): ?>
                                     ?>
 
                                     <?php
-                                    if( $time = get_field('event_start_time') ) { ?>
+                                    if( $time = get_field('event_start_time') && get_field('event_end_time') ) { ?>
                                         <div class="placeNumber">
                                             <h6>Time</h6>
                                             <strong>Starts: <?php the_field('event_start_time'); ?> / Ends: <?php the_field('event_end_time'); ?></strong>
@@ -148,15 +148,6 @@ if( !empty($markers) ): ?>
 
             <?php endif; // end have_posts() check ?>
             </ul>
-
-
-            <?php /* Display navigation to next/previous pages when applicable */ ?>
-            <?php if ( function_exists('bliTheme_pagination') ) { bliTheme_pagination(); } else if ( is_paged() ) { ?>
-                <nav id="post-nav">
-                    <div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'bli-theme' ) ); ?></div>
-                    <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'bli-theme' ) ); ?></div>
-                </nav>
-            <?php } ?>
 
         </div> <!-- small-12 large-12 columns -->
     </div> <!-- /row -->

@@ -45,9 +45,12 @@ get_header(); ?>
             yoast_breadcrumb('<p id="breadcrumbs">','</p>');
             } ?>
         </div>
+
         <header>
             <h2 class="entry-title"><?php the_title(); ?></h2>
         </header>
+           
+            
     </div>
 
     <div class="small-12 large-8 columns" role="main">
@@ -59,6 +62,15 @@ get_header(); ?>
                 <?php do_action('bliTheme_post_before_entry_content'); ?>
                 <?php get_template_part( 'content', 'events' ); ?>
             </article>
+            <section class="nextPrevLinks">
+                <?php
+                $next_post = get_next_post();
+                $prev_post = get_previous_post();
+                ?>
+                <a href="<?php echo get_permalink( $prev_post->ID ); ?>">< <?php echo $prev_post->post_title; ?></a> | 
+                <a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo get_the_title( $next_post->ID ); ?> ></a>
+                
+            </section>
         <?php endwhile;?>
         <?php do_action('bliTheme_after_content'); ?>
     </div>
