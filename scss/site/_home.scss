@@ -156,3 +156,13 @@
         }   
     }
 }
+
+.mediaBlockText {
+    a {
+        text-align: center !important;    
+        display: block;
+        &:hover {
+            text-decoration: underline;
+        }
+    }  
+}

@@ -249,3 +249,10 @@ button, .button {
     }
     text-align: center;
 }
+
+.readMore {
+    text-align: center;
+    &:hover {
+        text-decoration: underline;
+    }
+}

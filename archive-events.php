@@ -106,15 +106,15 @@ if( !empty($markers) ): ?>
                                 <div class="placeAddress">
                                     <h6>Address</h6>
                                     <?php 
-                                                            
-                                    // Returns the Address from Google Map Place
-                                    $contact_address = get_field('event_address');
-                                    ?>
-                                    <?php $address = explode( "," , $contact_address['address']);
-                                    echo $address[0]; //street, number
-                                    ?><br />
-                                    <?php
-                                    echo $address[1].','.$address[2]; //city, state + zip
+                                    if($address = get_field('event_address') ) {
+                                        // Returns the Address from Google Map Place
+                                        $contact_address = get_field('event_address');
+                                        $address = explode( "," , $contact_address['address']);
+                                        echo $address[0]; //street, number
+                                        echo '<br />';
+                                        echo $address[1].','.$address[2]; //city, state + zip  
+                                    }                       
+                                    
                                     ?>
 
                                     <?php
@@ -140,9 +140,9 @@ if( !empty($markers) ): ?>
                                         <?php
                                     }; ?>
                                 </div> <!-- /placeAddress -->
-                            </div> <!-- /archiveText --> 
+                                <a href="<?php the_permalink(); ?>" class="readMore">Read More...</a>
+                            </div> <!-- /archiveText -->
                         </div> <!-- /archiveAnchor -->
-
                     </li>
                 <?php endwhile; ?>
 

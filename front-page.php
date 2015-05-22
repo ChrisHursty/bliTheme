@@ -94,11 +94,15 @@
                     // The Loop
                     while ( $events_query->have_posts() ) : $events_query->the_post(); ?>
                         <li class="mediaBlock">
-                            <?php the_post_thumbnail(); ?>
+                            <a href="<?php the_permalink() ?>">
+                                <?php the_post_thumbnail(); ?>
+                            </a>
                             <div class="facebook"><a href="http://facebook.com/BronxLittleItaly" target="_blank"></a></div>
                             <div class="twitter"><a href="http://twitter.com/BXLittleItaly" target="_blank"></a></div>
                             <div class="mediaBlockText">
-                                <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+                                <a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br/>
+                                <?php the_field('event_excerpt'); ?><br/>
+                                <a href="<?php the_permalink(); ?>" class="readMore">Read More...</a>
                             </div>
                         </li>
                     <?php endwhile; ?>   
