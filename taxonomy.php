@@ -5,48 +5,35 @@
 
 get_header(); ?>
 <?php
-    $merchant_term = 'grocery-stores';
-    $grocerystores = get_field('merchant_address',$merchant->ID);
-    $hursty = new WP_Query(array(
+    $current_merchant = get_queried_object();
+    $taxonomyName     = get_taxonomy($current_merchant->taxonomy);
+    $store_type       = $current_merchant->name;
+    $stores           = get_posts( array(
+        'post_type'      => 'merchants',
+        'posts_per_page' => -1,
+        get_field('merchant_address',$store->ID),
         'tax_query' => array( 
             array(
                 'taxonomy' => 'merchants_type', // taxonomy name              
                 'field'    => 'slug',                   
-                'terms'    => array( $merchant_term ), // taxonomy term
+                'terms'    => array( $store_type ), // taxonomy term
             )
         )
     ));
-    
+?>    
 
-    foreach ($grocerystores as $grocer) {
-        if(!empty($grocer) ) {
-            the_title();
-            the_field('merchant_phone');
-        }
-    }
-
-?>
-<?php
-
-$merchants = get_posts( array(
-   'post_type'      => 'merchants',
-   'posts_per_page' => -1
-));
-
-if( !empty($merchants) ): ?>
 
 <div class="acf-map">
-  <?php foreach($merchants as $merchant): ?>
-    <?php
-        $location = get_field('merchant_address',$merchant->ID);
-        if( !empty($location) ): ?>
-        <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+    <?php foreach ($stores as $store): ?>
+    <?php 
+        $map = get_field('merchant_address', $store->ID);
+        if(!empty($store) ): ?>
+            <div class="marker" data-lat="<?php echo $map['lat']; ?>" data-lng="<?php echo $map['lng']; ?>"></div>
+
         <?php endif; ?>
-  <?php endforeach; ?>
-  
+    <?php endforeach; ?>
 </div>
 
-<?php endif; ?>
 <div class="row">
     <!-- Row for main content area -->
     <div class="small-12 large-12 columns archiveCategories" role="main">

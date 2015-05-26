@@ -43,7 +43,7 @@
 				<?php do_action('bliTheme_page_before_entry_content'); ?>
 				<div class="entry-content">
 					<?php the_content(); ?>
-				</div>
+				
 				<footer>
 					<?php wp_link_pages(array('before' => '<nav id="page-nav"><p>' . __('Pages:', 'bli-theme'), 'after' => '</p></nav>' )); ?>
 					<p><?php the_tags(); ?></p>
@@ -54,7 +54,7 @@
 			</article>
 		<?php endwhile;?>
 		<?php do_action('bliTheme_after_content'); ?>
-	
+	</div>
 	<?php get_sidebar(); ?>
-</div> <!-- /row -->
+
 <?php get_footer(); ?>

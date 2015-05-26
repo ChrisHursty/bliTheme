@@ -20,15 +20,5 @@
         ?>
         <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
             <?php get_template_part('parts/custom_loop'); ?>
-            <h6>Address</h6>
-                <?php 
-                // If the merchant term is grocery stores
-                // List out the goolge map entries
-                if(true) {
-                    the_title();
-                    the_field('merchant_phone');
-                }
-
-                ?>
         <?php endwhile; wp_reset_postdata(); ?>
     </ul>

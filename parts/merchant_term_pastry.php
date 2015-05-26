@@ -3,7 +3,7 @@
         <?php
         $current_merchant_type = get_queried_object();
         $taxonomy_type         = get_taxonomy($current_merchant_type->taxonomy);
-        $merchant_term         = 'pasta';
+        $merchant_term         = 'pastry';
         $loop = new WP_Query(array(
             'post_type'         =>  'merchants', // name of CPT
             'tax_query' => array( 
