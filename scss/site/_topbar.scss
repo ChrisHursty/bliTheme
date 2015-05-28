@@ -13,8 +13,22 @@
     }
 }
 
+.tagline {
+    .logoText {
+        text-transform: capitalize;
+        color: $black;
+        font-size: 14px;
+        float: left;
+        margin: 24px 0 0 32px;
+
+        @media #{$small-only} {
+            display: none;
+        }
+    }
+}
+
 #logo {
-    background: url('../assets/logoNew.jpg');
+    background: url('../assets/logo.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
     text-indent: -9999px;
@@ -105,7 +119,7 @@ input[type="text"]:focus {
 
         ul {
             list-style: none;
-            margin-top: 24px;
+            margin-top: 20px;
 
             li {
                 background-color: transparent !important;

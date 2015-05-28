@@ -22,7 +22,7 @@
 	<?php if ( function_exists('bliTheme_pagination') ) { bliTheme_pagination(); } else if ( is_paged() ) { ?>
 
 		<nav id="post-nav">
-			<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'bli-theme' ) ); ?></div>
+			<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'bli-themeC' ) ); ?></div>
 			<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'bli-theme' ) ); ?></div>
 		</nav>
 	<?php } ?>

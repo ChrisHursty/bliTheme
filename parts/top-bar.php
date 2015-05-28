@@ -3,7 +3,9 @@
         <div class="branding">
             <a href="<?php echo home_url(); ?>"><h1 id="logo"><?php bloginfo('name'); ?></h1></a>
         </div>
-
+        <div class="tagline">
+            <h2 class="logoText">The Belmont Business Improvement District</h2>
+        </div>
         <div id="mc4wp-form-1" class="form mc4wp-form bliTextInput">
             <form method="post" role="form">
 

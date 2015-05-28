@@ -14,14 +14,7 @@
             <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
         </header><!-- .entry-header -->
         </a>
-        <?php // Displays Merchants / Type of 
-            if( 'merchants' == get_post_type( ) ) { ?>
-                <div class="">
-                    <div class="">
-                        <?php echo get_the_term_list( $post->ID, 'merchants', 'Type of Merchants: ', ', ', ''); ?>
-                    </div>
-                </div>
-            <?php } ?>
+        
     <div class="entry-content">
         <?php the_content(__('Continue reading...', 'bli-theme')); ?>
     </div>
