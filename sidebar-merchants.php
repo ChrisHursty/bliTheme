@@ -36,7 +36,8 @@
         ?> 
         <div class="placeWeb">
             <h6>Website</h6>
-            <a href="<?php the_field('merchant_website')?>" target="_blank"> <?php the_field('merchant_website') ?></a>  
+            <a href="<?php the_field('merchant_website')?>" target="_blank">
+                <?php the_field('merchant_website') ?></a>  
         </div>
         <?php
     }; ?>

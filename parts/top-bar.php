@@ -28,19 +28,6 @@
             </form>
         </div>
 
-        <!-- <div class="bliTextInput">
-            <div class="bliFormText">
-                <label>Sign Up for Our Newsletter</label>
-            </div>
-            <div class="bliFormField clearfix">
-                <input type="email" name="EMAIL" placeholder="Email Address" required="required">
-                <div class="bliFormButton">
-                    <a href=""><img src="../assets/PNG/circle-right.png" alt="Sign Up For Our Newsletter"></a>
-                </div>
-            </div>
-                   
-        </div> -->
-
         <nav class="desktopNav" data-topbar role="navigation">
             <section class="top-bar-section">
                 <?php bliTheme_top_bar_r(); ?>

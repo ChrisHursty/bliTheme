@@ -4,7 +4,7 @@ jQuery( document ).ready(function( $ ) {
     // Slick Slider - Home Page
     $('.sliderHome').slick({
         autoplay: true,
-        autoplaySpeed: 1200,
+        autoplaySpeed: 2400,
         infinite: true,
         dots: true,
         slidesToShow: 1,

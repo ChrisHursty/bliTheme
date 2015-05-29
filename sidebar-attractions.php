@@ -36,7 +36,7 @@
         ?> 
         <div class="placeWeb">
             <h6>Website</h6>
-            <a href="<?php get_field('attraction_website'); ?>" target="_blank">
+            <a href="<?php the_field('attraction_website'); ?>" target="_blank">
                 <?php the_field('attraction_website'); ?>
             </a>  
         </div>
