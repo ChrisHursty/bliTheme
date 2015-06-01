@@ -57,6 +57,8 @@
 	<?php get_template_part('parts/off-canvas-menu'); ?>
 
 	<?php get_template_part('parts/top-bar'); ?>
-
+	<div class="row">
+		<h2 class="officialBli">The Official Site Of Bronx Little Italy</h2>
+	</div>
 <section class="container" role="document">
 	<?php do_action('bliTheme_after_header'); ?>

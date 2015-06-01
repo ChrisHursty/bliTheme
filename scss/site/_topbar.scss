@@ -1,7 +1,7 @@
 // Top Bar/Header Styles
 
 .header {
-    margin: 20px auto;
+    margin: 20px auto 0;
 }
 
 .branding {
@@ -32,6 +32,21 @@
     @media #{$small-only} {
         display: none;
     }
+}
+
+.officialBli {
+    color: $charcoal;
+    text-shadow: 0 1px 1px $jumbo;
+    text-align: center;
+    font-size: 26px;
+    @media #{$medium-only} {
+        display: none;
+    }
+    
+    @media #{$small-only} {
+        display: none;
+    }
+
 }
 
 #logo {
