@@ -13,7 +13,7 @@ jQuery( document ).ready(function( $ ) {
         element: 'div',
         responsive: [
             {
-            breakpoint: 600,
+            breakpoint: 640,
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,

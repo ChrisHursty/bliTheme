@@ -104,4 +104,5 @@ $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (m
 // Legacy
 $small: $medium-up;
 $medium: $medium-up;
+$medium-down: (0em, 90em);
 $large: $large-up;

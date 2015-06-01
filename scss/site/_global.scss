@@ -165,8 +165,14 @@ button, .button {
         }
 
         @media #{$small-only} {
-            width: 90%;
+            width: 100%;
         }   
+    }
+    @media #{$small-only} {
+        width: 90%;
+        margin: 12px 5%;
+        float: left;
+        display: block;
     }    
 }
 
