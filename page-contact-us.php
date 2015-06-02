@@ -1,9 +1,11 @@
 <?php get_header(); ?>
 
 <div class="featuredImage-small">
-	<?php
-	// If There's a Thumbnail
-	if ( has_post_thumbnail() ) { the_post_thumbnail('featured-img-sm'); } ?>
+    <?php if ( has_post_thumbnail() ) {
+    the_post_thumbnail( 'featured-img-sm' );
+    } else { ?>
+    <img src="<?php bloginfo('template_directory'); ?>/assets/default-featured-img.jpg" alt="Bronx Little Italy" />
+    <?php } ?>
 </div>
 
 <div class="row">

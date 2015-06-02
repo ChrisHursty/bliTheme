@@ -105,6 +105,9 @@
         .mailingAddress {
             font-size: 18px;
         }
+        @media #{$small-only} {
+            width: 100%;
+        }
     }
 }
 
